@@ -8,7 +8,8 @@ import { hero, profile } from '@/data/profile';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-      <div className="bp-grid bp-grid-fade absolute inset-0 -z-10" aria-hidden />
+      {/* <div className="bp-grid bp-grid-fade absolute inset-0 -z-10" aria-hidden /> */}
+      <div className="absolute inset-0 -z-10" aria-hidden />
 
       <Container>
         <div className="grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-10">
