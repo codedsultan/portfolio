@@ -9,7 +9,8 @@ import { socialLinks } from '@/data/social';
 export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden py-24 sm:py-28">
-      <div className="bp-grid bp-grid-fade absolute inset-0 -z-10 opacity-60" aria-hidden />
+      {/* <div className="bp-grid bp-grid-fade absolute inset-0 -z-10 opacity-60" aria-hidden /> */}
+      <div className="absolute inset-0 -z-10 opacity-60" aria-hidden />
 
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16">
