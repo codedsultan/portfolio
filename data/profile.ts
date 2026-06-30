@@ -5,7 +5,7 @@ export const profile = {
   headline: 'Full-Stack Engineer',
   location: 'Calgary, Alberta, Canada',
   email: 'codesultan369@gmail.com',
-  phone: '+1 (587) 971-9955',
+  // phone: '+1 (587) 971-9955',
   bio: '8+ years building backend and full-stack systems for fintech and global workforce platforms — specialising in microservices, event-driven architecture, and cloud-native delivery across AWS, GCP, and Azure.',
   availability: 'Open to senior / lead engineering roles',
   resumeUrl: '/resume.pdf',

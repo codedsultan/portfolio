@@ -27,10 +27,10 @@ export const socialLinks: SocialLink[] = [
     url: 'mailto:codesultan369@gmail.com',
     icon: Mail,
   },
-  {
-    platform: 'whatsapp',
-    label: 'WhatsApp',
-    url: 'https://wa.me/15879719955',
-    icon: MessageCircle,
-  },
+  // {
+  //   platform: 'whatsapp',
+  //   label: 'WhatsApp',
+  //   url: 'https://wa.me/15879719955',
+  //   icon: MessageCircle,
+  // },
 ];

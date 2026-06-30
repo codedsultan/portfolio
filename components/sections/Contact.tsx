@@ -45,13 +45,13 @@ export function Contact() {
                 <CopyEmailButton email={profile.email} />
               </div>
 
-              <a
+              {/* <a
                 href={`tel:${profile.phone.replace(/[^+\d]/g, '')}`}
                 className="flex items-center gap-2.5 text-[14.5px] text-ink-soft transition-colors hover:text-blue"
               >
                 <Phone size={15} className="text-blue" />
                 {profile.phone}
-              </a>
+              </a> */}
 
               <span className="flex items-center gap-2.5 text-[14.5px] text-ink-soft">
                 <MapPin size={15} className="text-blue" />
