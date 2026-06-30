@@ -17,7 +17,7 @@ export function Projects() {
           <SectionHeading
             eyebrow="05 — Selected Work"
             title="Products I've built and shipped"
-            description="A selection of work across SaaS platforms, internal services, and client engagements — ranked by scope and impact."
+            description="A selection of some of my recent works"
           />
         </Reveal>
 
