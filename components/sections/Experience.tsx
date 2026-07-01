@@ -1,7 +1,12 @@
+'use client';
+
+import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
-import { experience } from '@/data/experience';
+import { ExperienceModal } from '@/components/sections/ExperienceModal';
+import { experience, type ExperienceItem } from '@/data/experience';
 
 function formatRange(start: string, end: string | null) {
   const fmt = (d: string) => {
@@ -12,57 +17,94 @@ function formatRange(start: string, end: string | null) {
   return `${fmt(start)} — ${end ? fmt(end) : 'Present'}`;
 }
 
-export function Experience() {
+function ExperienceCard({
+  item,
+  index,
+  onOpen,
+  isLast,
+}: {
+  item: ExperienceItem;
+  index: number;
+  onOpen: () => void;
+  isLast: boolean;
+}) {
   return (
-    <section id="experience" className="bg-panel py-24 sm:py-28">
-      <Container>
-        <Reveal>
-          <SectionHeading
-            eyebrow="02 — Experience"
-            title="Where I've built"
-            description="A timeline of roles where I shipped production systems, led delivery, and mentored other engineers."
-          />
-        </Reveal>
+    <Reveal as="li" delay={index * 70} className="relative pl-8">
+      {!isLast && (
+        <span className="absolute left-[5px] top-5 bottom-[-1rem] w-px bg-line-strong" aria-hidden />
+      )}
+      <span
+        className={`absolute left-0 top-2 flex h-[10px] w-[10px] items-center justify-center rounded-full border-2 transition-colors ${item.isCurrent ? 'border-blue bg-blue' : 'border-line-strong bg-white'
+          }`}
+        aria-hidden
+      />
 
-        <ol className="relative mt-14">
-          <span className="absolute left-[5px] top-1 bottom-1 w-px bg-line-strong" aria-hidden />
-
-          {experience.map((item, i) => (
-            <Reveal as="li" key={item.company} delay={i * 90} className="relative mb-12 pl-9 last:mb-0">
-              <span
-                className={`absolute left-0 top-1.5 h-[10px] w-[10px] rounded-full border-2 ${
-                  item.isCurrent ? 'border-blue bg-blue' : 'border-line-strong bg-white'
-                }`}
-                aria-hidden
-              />
-
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <h3 className="font-display text-lg font-semibold text-ink">
-                  {item.role} <span className="text-blue">· {item.company}</span>
-                </h3>
-                <span className="num-mono whitespace-nowrap text-[13px] text-slate-light">
-                  {formatRange(item.startDate, item.endDate)}
+      <button
+        type="button"
+        onClick={onOpen}
+        className="group w-full rounded-lg border border-line bg-white p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_8px_24px_-12px_rgba(15,44,102,0.2)]"
+      >
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-display text-[15px] font-semibold leading-snug text-ink">
+                {item.role}
+              </span>
+              {item.isCurrent && (
+                <span className="num-mono inline-flex items-center gap-1 rounded-full bg-blue-tint px-2 py-0.5 text-[11px] font-medium text-blue">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden /> Current
                 </span>
-              </div>
+              )}
+            </div>
+            <p className="mt-0.5 text-[13.5px] font-medium text-blue">{item.company}</p>
+          </div>
+          <span className="num-mono flex-shrink-0 text-[12px] text-slate-light">
+            {formatRange(item.startDate, item.endDate)}
+          </span>
+        </div>
 
-              <p className="num-mono mt-1 text-[12.5px] uppercase tracking-[0.04em] text-slate-light">
-                {item.location} · {item.employmentType}
-              </p>
+        <p className="mt-2.5 line-clamp-2 text-[13.5px] leading-relaxed text-slate">
+          {item.summary}
+        </p>
 
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate">{item.summary}</p>
+        <div className="mt-3 flex items-center gap-1.5 text-[12.5px] font-medium text-blue opacity-0 transition-opacity group-hover:opacity-100">
+          View {item.achievements.length} highlights <ArrowRight size={12} />
+        </div>
+      </button>
+    </Reveal>
+  );
+}
 
-              <ul className="mt-4 space-y-2">
-                {item.achievements.map((achievement) => (
-                  <li key={achievement} className="flex gap-2.5 text-[14.5px] leading-relaxed text-ink-soft">
-                    <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-blue" aria-hidden />
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </ol>
-      </Container>
-    </section>
+export function Experience() {
+  const [selected, setSelected] = useState<ExperienceItem | null>(null);
+
+  return (
+    <>
+      <section id="experience" className="bg-panel py-24 sm:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="02 — Experience"
+              title="Where I've built"
+              description="Click any role to see the full scope of work and key achievements."
+            />
+          </Reveal>
+
+          <ol className="relative mt-14 space-y-4">
+            {experience.map((item, i) => (
+              <ExperienceCard
+                key={`${item.company}-${item.startDate}`}
+                item={item}
+                index={i}
+                isLast={i === experience.length - 1}
+                onOpen={() => setSelected(item)}
+              />
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <ExperienceModal item={selected} onClose={() => setSelected(null)} />
+    </>
   );
 }

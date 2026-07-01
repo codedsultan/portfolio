@@ -22,8 +22,8 @@ export const hero = {
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
     { label: 'WriterIX', detail: 'AI blog SaaS', href: 'https://writerix.xurl.fyi/' },
+    { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
     { label: 'X-Socials', detail: 'Distributed social platform', href: 'https://staging-api.x-social.xurl.fyi/' },
-    { label: 'xurl.fyi', detail: 'Go URL shortener', href: 'https://xurl.fyi/' },
   ],
 };
 
