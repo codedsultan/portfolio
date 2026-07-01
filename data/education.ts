@@ -13,7 +13,7 @@ export interface CertificationItem {
 export const education: EducationItem[] = [
   {
     school: 'Osun State University, Osogbo, Nigeria',
-    program: 'Bachelor of Engineering (B.Eng.) in Civil Engineering',
+    program: 'Bachelor of Engineering (B.Eng.)',
     date: 'September 2015',
   },
 ];
