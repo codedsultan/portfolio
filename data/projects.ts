@@ -107,7 +107,7 @@ export const projects: Project[] = [
     category: 'platform',
     githubUrl: null,
     liveUrl: 'https://crm.vecitechnologies.net/',
-    stagingUrl: 'https://vecicrm.xurl.fyi/',
+    stagingUrl: null,
     isFeatured: true,
     sortOrder: 2,
     year: '2024–present',
