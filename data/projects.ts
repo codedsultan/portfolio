@@ -43,7 +43,7 @@ export const projects: Project[] = [
     category: 'platform',
     githubUrl: 'https://github.com/codedsultan/x-socials',
     liveUrl: 'https://staging-api.x-social.xurl.fyi',
-    isFeatured: true,
+    isFeatured: false,
     sortOrder: 2,
     year: '2026',
     role: 'Architect & Full-Stack Engineer',
