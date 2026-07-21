@@ -23,7 +23,7 @@ export const hero = {
   shipping: [
     { label: 'WriterIX', detail: 'AI blog SaaS', href: 'https://writerix.xurl.fyi/' },
     { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
-    { label: 'X-Socials', detail: 'Distributed social platform', href: 'https://staging-api.x-social.xurl.fyi/' },
+    { label: 'InnerMost', detail: 'Mind-reading game', href: 'https://innermost.live/' },
   ],
 };
 
