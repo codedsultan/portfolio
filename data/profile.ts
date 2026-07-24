@@ -21,7 +21,8 @@ export const hero = {
   primaryCta: { label: 'View selected work', target: '#work' },
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
-    { label: 'WriterIX', detail: 'AI blog SaaS', href: 'https://writerix.xurl.fyi/' },
+    // { label: 'WriterIX', detail: 'AI blog SaaS', href: 'https://writerix.xurl.fyi/' },
+    { label: 'DocMind', detail: 'Agentic AI RAG assistant', href: 'https://github.com/codedsultan/docmind' },
     { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
     { label: 'InnerMost', detail: 'Mind-reading game', href: 'https://innermost.live/' },
   ],
