@@ -311,7 +311,7 @@ export const projects: Project[] = [
       'Deployed the full stack on AWS.',
     ],
     highlights: [
-      'The core algorithm works — it reliably converges on any number or word the subject is thinking of through a fixed question sequence',
+      'The core algorithm works — it reliably converges on any number or word the subject is thinking of through a 3 rounds process',
       'Real-time multiplayer via WebSockets — both players see the same game state update live',
       'Full credit economy with earn/spend mechanics, streaks, and a transaction ledger',
       'Two distinct game modes: Golden Mind (numbers) and Golden Eye (words/concepts)',
