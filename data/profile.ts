@@ -1,12 +1,13 @@
+
 export const profile = {
   name: 'Olusegun Ibraheem',
   username: 'codesultan',
   initials: 'OI',
-  headline: 'Full-Stack Engineer',
+  headline: 'Software Engineer & Engineering Lead',
   location: 'Calgary, Alberta, Canada',
   email: 'codesultan369@gmail.com',
-  // phone: '+1 (587) 971-9955',
-  bio: '8+ years building backend and full-stack systems for fintech and global workforce platforms — specialising in microservices, event-driven architecture, and cloud-native delivery across AWS, GCP, and Azure.',
+  phone: '+1 (587) 971-9955',
+  bio: '8+ years directing high-concurrency backend systems, event-driven microservices, and full-stack platforms. Proven track record shipping 15+ production applications, leading multi-cloud infrastructure, and deploying production AI pipelines and RAG systems.',
   availability: 'Open to senior / lead engineering roles',
   resumeUrl: '/resume.pdf',
 };
@@ -21,10 +22,10 @@ export const hero = {
   primaryCta: { label: 'View selected work', target: '#work' },
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
-    // { label: 'WriterIX', detail: 'AI blog SaaS', href: 'https://writerix.xurl.fyi/' },
-    { label: 'DocMind', detail: 'Agentic AI RAG assistant', href: 'https://github.com/codedsultan/docmind' },
-    { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
+    { label: 'tech1m.ai', detail: 'AI talent platform', href: 'https://tech1m.ai/' },
     { label: 'InnerMost', detail: 'Mind-reading game', href: 'https://innermost.live/' },
+    // { label: 'DocMind', detail: 'RAG document platform', href: 'https://github.com/codedsultan/docmind' },
+    { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
   ],
 };
 
@@ -73,5 +74,5 @@ export const seo = {
     'Calgary software engineer',
     'fintech engineer',
   ],
-  siteUrl: 'https://olusegunibraheem.com',
+  siteUrl: 'https://codesultan.xurl.fyi',
 };

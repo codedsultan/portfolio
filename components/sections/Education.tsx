@@ -1,18 +1,18 @@
-import { GraduationCap, BadgeCheck } from 'lucide-react';
+import { GraduationCap, BadgeCheck, GitMerge } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
-import { education, certifications } from '@/data/education';
+import { education, certifications, openSourceContributions } from '@/data/education';
 
 export function Education() {
   return (
     <section id="education" className="bg-panel py-24 sm:py-28">
       <Container>
         <Reveal>
-          <SectionHeading eyebrow="04 — Credentials" title="Education & Certifications" />
+          <SectionHeading eyebrow="04 — Credentials" title="Education, Certifications & Open Source" />
         </Reveal>
 
-        <div className="mt-12 grid gap-14 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-12 grid gap-14 lg:grid-cols-3 lg:gap-10">
           {/* Education */}
           <div>
             <Reveal>
@@ -63,6 +63,41 @@ export function Education() {
                       <p className="mt-1 text-sm text-slate">{cert.issuer}</p>
                       <p className="num-mono mt-2 text-[12.5px] uppercase tracking-[0.04em] text-slate-light">
                         {cert.date}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Open Source */}
+          <div>
+            <Reveal>
+              <p className="num-mono mb-5 text-[12px] uppercase tracking-[0.08em] text-blue">
+                Open Source
+              </p>
+            </Reveal>
+            <div className="space-y-4">
+              {openSourceContributions.map((contrib, i) => (
+                <Reveal key={contrib.project} delay={i * 80} className="rounded-lg border border-line bg-white p-6">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-blue-tint text-blue">
+                      <GitMerge size={19} />
+                    </span>
+                    <div>
+                      <a
+                        href={contrib.repoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-display text-base font-semibold leading-snug text-ink hover:text-blue transition-colors"
+                      >
+                        {contrib.project}
+                      </a>
+                      <p className="num-mono mt-1 text-[12px] text-blue">{contrib.tech}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate">{contrib.summary}</p>
+                      <p className="num-mono mt-2 text-[12.5px] uppercase tracking-[0.04em] text-slate-light">
+                        {contrib.date}
                       </p>
                     </div>
                   </div>
