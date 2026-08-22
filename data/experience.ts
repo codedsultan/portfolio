@@ -34,23 +34,22 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    company: 'Veci Technologies',
-    role: 'Freelance Software Engineer',
-    location: 'Remote',
-    employmentType: 'Freelance',
-    startDate: '2024-01',
+    company: "Veci Technologies",
+    role: "Freelance AI Engineer & Systems Architect",
+    location: "Remote",
+    employmentType: "Freelance",
+    startDate: "2026-01",
     endDate: null,
     isCurrent: true,
-    summary:
-      'Designing and building a full-featured, multi-tenant CRM from scratch for Veci Technologies — domain-driven Laravel 13 + Inertia + React platform with Go microservices, live in production and actively maintained.',
+    summary: "Modernizing legacy CRM architecture into a full-featured, multi-tenant platform for Veci Technologies — domain-driven Django + React 19 platform with Go microservices, integrated AI features, live in production and actively maintained.",
     achievements: [
-      'Architected a multi-tenant CRM monorepo from the ground up: Laravel 13 (domain-driven, 20+ bounded contexts), Inertia.js v3 + React 19 + TypeScript frontend, PostgreSQL, Redis, and Laravel Horizon.',
-      'Built 20+ domain modules (Leads, Contacts, Deals, Pipelines, Quotes, Invoices, Automations, Email, and more) each following a strict Actions/Queries/Policies/Events structure.',
-      'Implemented workspace-scoped multi-tenancy with a BelongsToWorkspace trait, global WorkspaceScope, and ULID public IDs throughout the API surface.',
-      'Built Go microservices for CSV/XLSX bulk import and email/reply ingestion, integrated into the Laravel queue via five named Horizon channels.',
-      'Set up Docker Compose infrastructure (PHP-FPM, Nginx, PostgreSQL, Redis, Mailpit) with Pest v4 test suite and Larastan level-6 static analysis enforced in CI.',
-      'Deployed and actively maintains both staging (vecicrm.xurl.fyi) and production (crm.vecitechnologies.net) environments.',
-    ],
+      "Refactored legacy monolithic CRM architecture into a modern multi-tenant platform, migrating core services to Django and React 19 while integrating intelligent, context-aware AI capabilities.",
+      "Engineered production AI pipelines and RAG workflows using Django, React 19, LangChain, and pgvector with Pydantic validation to power automated lead scoring, smart document parsing, and semantic search.",
+      "Architected a multi-tenant monorepo across 20+ bounded contexts (Leads, Deals, Invoices, Automations) using Django, TypeScript, React 19, PostgreSQL, and Redis with workspace-scoped data isolation.",
+      "Built high-performance Go microservices for bulk CSV/XLSX data ingestion, email/reply parsing, and asynchronous job processing, integrated directly into distributed queue channels.",
+      "Set up Docker Compose infrastructure with automated test suites and static analysis enforced in CI/CD pipelines via GitHub Actions.",
+      "Deployed and actively maintains production and staging environments with high availability and automated monitoring."
+    ]
   },
   {
     company: 'Tedbree',

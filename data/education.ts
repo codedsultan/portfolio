@@ -31,9 +31,15 @@ export const certifications: CertificationItem[] = [
   },
 ];
 
+export interface OpenSourceRepo {
+  label: string;
+  url: string;
+}
+
 export interface OpenSourceContribution {
   project: string;
-  repoUrl: string;
+  repos: OpenSourceRepo[];
+  website: string;
   tech: string;
   summary: string;
   date: string;
@@ -42,10 +48,14 @@ export interface OpenSourceContribution {
 export const openSourceContributions: OpenSourceContribution[] = [
   {
     project: 'Goravel Framework & Ecosystem',
-    repoUrl: 'https://github.com/goravel',
+    website: 'https://goravel.dev',
+    repos: [
+      { label: 'goravel/framework', url: 'https://github.com/goravel/framework' },
+      { label: 'goravel/slack', url: 'https://github.com/goravel/slack' },
+    ],
     tech: 'Go',
     summary:
       'Contributed core framework features, notification channels, and architectural enhancements to the open-source Go framework designed to recreate the Laravel developer experience in Go. Also authored and maintains the Goravel Slack Driver — a driver package enabling seamless Slack notification and webhook integrations for the Goravel ecosystem.',
-    date: '2023–present',
+    date: '2026–present',
   },
 ];

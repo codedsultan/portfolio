@@ -87,18 +87,28 @@ export function Education() {
                     </span>
                     <div>
                       <a
-                        href={contrib.repoUrl}
+                        href={contrib.website}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-display text-base font-semibold leading-snug text-ink hover:text-blue transition-colors"
+                        className="font-display inline-block text-base font-semibold leading-snug text-ink transition-colors hover:text-blue"
                       >
-                        {contrib.project}
+                        {contrib.project} ↗
                       </a>
-                      <p className="num-mono mt-1 text-[12px] text-blue">{contrib.tech}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-slate">{contrib.summary}</p>
-                      <p className="num-mono mt-2 text-[12.5px] uppercase tracking-[0.04em] text-slate-light">
-                        {contrib.date}
-                      </p>
+                      <p className="num-mono mt-1 text-[12px] text-blue">{contrib.tech} · {contrib.date}</p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {contrib.repos.map((repo) => (
+                          <a
+                            key={repo.url}
+                            href={repo.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="num-mono inline-flex items-center gap-1 rounded border border-line-strong px-2 py-0.5 text-[11.5px] text-ink-soft transition-colors hover:border-blue hover:text-blue"
+                          >
+                            {repo.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                      <p className="mt-3 text-sm leading-relaxed text-slate">{contrib.summary}</p>
                     </div>
                   </div>
                 </Reveal>
