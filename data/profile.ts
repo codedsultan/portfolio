@@ -44,7 +44,7 @@ export const about = {
 };
 
 export const contact = {
-  eyebrow: '06 — Contact',
+  eyebrow: '07 — Contact',
   title: "Let's build something.",
   intro:
     "I'm always open to new projects, senior engineering roles, or a conversation about hard distributed-systems problems. The fastest way to reach me is email — I read every message.",
@@ -58,7 +58,7 @@ export const footer = {
 };
 
 export const seo = {
-  title: 'Olusegun Ibraheem — Senior Full-Stack Engineer',
+  title: 'Olusegun Ibraheem — Software Engineer',
   description:
     'Senior Full-Stack Engineer with 8+ years building microservices and event-driven systems for fintech and global workforce platforms across AWS, GCP, and Azure. Based in Calgary, Alberta.',
   keywords: [
@@ -67,6 +67,7 @@ export const seo = {
     'senior software engineer',
     'microservices',
     'event-driven architecture',
+    'Django developer',
     'NestJS developer',
     'Laravel developer',
     'React developer',
