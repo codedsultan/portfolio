@@ -22,10 +22,10 @@ export const hero = {
   primaryCta: { label: 'View selected work', target: '#work' },
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
-    { label: 'tech1m.ai', detail: 'AI talent platform', href: 'https://tech1m.ai/' },
+    { label: 'xurl.fyi', detail: 'URL shortener', href: 'https://xurl.fyi/' },
     { label: 'InnerMost', detail: 'Mind-reading game', href: 'https://innermost.live/' },
-    // { label: 'DocMind', detail: 'RAG document platform', href: 'https://github.com/codedsultan/docmind' },
-    { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://crm.vecitechnologies.net/' },
+    { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://app-crm.xurl.fyi/' },
+    { label: 'DocMind', detail: 'RAG doc platform', href: 'https://github.com/codedsultan/docmind' },
   ],
 };
 

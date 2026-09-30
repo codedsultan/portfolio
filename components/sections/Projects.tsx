@@ -89,15 +89,17 @@ export function Projects() {
           ))}
         </div>
 
-        <Reveal delay={120} className="mt-20">
-          <p className="num-mono mb-1 text-[12px] uppercase tracking-[0.08em] text-slate-light">
-            More builds
-          </p>
-          <p className="mb-6 text-sm text-slate">
-            Internal services and client engagements — filter by category.
-          </p>
-          <ProjectsFilter projects={otherProjects} />
-        </Reveal>
+        {otherProjects.length > 0 && (
+          <Reveal delay={120} className="mt-20">
+            <p className="num-mono mb-1 text-[12px] uppercase tracking-[0.08em] text-slate-light">
+              More builds
+            </p>
+            <p className="mb-6 text-sm text-slate">
+              Internal services and client engagements — filter by category.
+            </p>
+            <ProjectsFilter projects={otherProjects} />
+          </Reveal>
+        )}
       </Container>
     </section>
   );
