@@ -17,6 +17,7 @@
   --color-blue-deep:   var(--blue-deep);
   --color-blue:        var(--blue-brand);
   --color-blue-bright: var(--blue-bright);
+  --color-blue-action: var(--blue-action);
   --color-blue-tint:   var(--blue-tint);
   --color-blue-tint-2: var(--blue-tint-2);
 
@@ -37,6 +38,7 @@
   --blue-deep:   #0f2c66;
   --blue-brand:  #1d4ed8;
   --blue-bright: #2f6fed;
+  --blue-action: #1d4ed8;
   --blue-tint:   #eef3fc;
   --blue-tint-2: #e3ecfb;
 }
@@ -51,10 +53,11 @@
   --slate:       #7a8faf;
   --slate-light: #6b80a0;
   --line:        #1a2d4a;
-  --line-strong: #253f60;
+  --line-strong: #4a6d9a;
   --blue-deep:   #93b8ff;
   --blue-brand:  #5b93f5;
   --blue-bright: #7aabf8;
+  --blue-action: #2563eb;
   --blue-tint:   #0a1830;
   --blue-tint-2: #0d2040;
 }

@@ -36,7 +36,7 @@ export function ProjectsFilter({ projects }: { projects: Project[] }) {
             className={cn(
               'num-mono rounded-full border px-3.5 py-1.5 text-[12.5px] tracking-tight transition-colors',
               active === cat
-                ? 'border-blue bg-blue text-white'
+                ? 'border-blue-action bg-blue-action text-white'
                 : 'border-line-strong bg-surface text-slate hover:border-blue hover:text-blue',
             )}
           >

@@ -43,7 +43,7 @@ export function Navbar() {
     >
       <Container className="flex h-16 items-center justify-between">
         <Link href="/#top" className="flex items-center gap-2.5 font-display font-semibold text-ink">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue text-[13px] font-bold text-white num-mono">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-action text-[13px] font-bold text-white num-mono">
             {profile.initials}
           </span>
           <span className="hidden text-[15px] sm:inline">{profile.name}</span>
@@ -113,7 +113,7 @@ export function Navbar() {
             href={profile.resumeUrl}
             download
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md bg-blue px-4 py-2.5 text-[15px] font-medium text-white"
+            className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md bg-blue-action px-4 py-2.5 text-[15px] font-medium text-white"
           >
             Download résumé <ArrowUpRight size={14} />
           </a>

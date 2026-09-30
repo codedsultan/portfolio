@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-sm">
           <div className="flex items-center gap-2.5 font-display font-semibold text-ink">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-blue text-[12px] font-bold text-white num-mono">
+            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-blue-action text-[12px] font-bold text-white num-mono">
               {profile.initials}
             </span>
             <span className="text-[15px]">{profile.name}</span>
