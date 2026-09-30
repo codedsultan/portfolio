@@ -42,7 +42,7 @@ function ExperienceCard({
       <button
         type="button"
         onClick={onOpen}
-        className="group w-full rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_8px_24px_-12px_rgba(15,44,102,0.2)]"
+        className="group w-full rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:bg-blue-tint hover:shadow-[0_12px_32px_-12px_rgba(15,44,102,0.28)]"
       >
         <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <div className="min-w-0">
@@ -67,8 +67,9 @@ function ExperienceCard({
           {item.summary}
         </p>
 
-        <div className="mt-3 flex items-center gap-1.5 text-[12.5px] font-medium text-blue opacity-0 transition-opacity group-hover:opacity-100">
-          View {item.achievements.length} highlights <ArrowRight size={12} />
+        <div className="mt-3 flex items-center gap-1.5 text-[12.5px] font-medium text-slate transition-colors group-hover:text-blue">
+          View {item.achievements.length} highlights
+          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
         </div>
       </button>
     </Reveal>
