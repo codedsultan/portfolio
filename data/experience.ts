@@ -33,24 +33,24 @@ export const experience: ExperienceItem[] = [
       'Mentored cross-functional teams through code reviews and design reviews, elevating quality standards, boosting sprint velocity, and reducing review turnaround times.',
     ],
   },
-  {
-    company: "Veci Technologies",
-    role: "Freelance AI Engineer & Systems Architect",
-    location: "Remote",
-    employmentType: "Freelance",
-    startDate: "2026-01",
-    endDate: null,
-    isCurrent: true,
-    summary: "Modernizing legacy CRM architecture into a full-featured, multi-tenant platform for Veci Technologies — domain-driven Django + React 19 platform with Go microservices, integrated AI features, live in production and actively maintained.",
-    achievements: [
-      "Refactored legacy monolithic CRM architecture into a modern multi-tenant platform, migrating core services to Django and React 19 while integrating intelligent, context-aware AI capabilities.",
-      "Engineered production AI pipelines and RAG workflows using Django, React 19, LangChain, and pgvector with Pydantic validation to power automated lead scoring, smart document parsing, and semantic search.",
-      "Architected a multi-tenant monorepo across 20+ bounded contexts (Leads, Deals, Invoices, Automations) using Django, TypeScript, React 19, PostgreSQL, and Redis with workspace-scoped data isolation.",
-      "Built high-performance Go microservices for bulk CSV/XLSX data ingestion, email/reply parsing, and asynchronous job processing, integrated directly into distributed queue channels.",
-      "Set up Docker Compose infrastructure with automated test suites and static analysis enforced in CI/CD pipelines via GitHub Actions.",
-      "Deployed and actively maintains production and staging environments with high availability and automated monitoring."
-    ]
-  },
+  // {
+  //   company: "Veci Technologies",
+  //   role: "Freelance AI Engineer & Systems Architect",
+  //   location: "Remote",
+  //   employmentType: "Freelance",
+  //   startDate: "2026-01",
+  //   endDate: null,
+  //   isCurrent: true,
+  //   summary: "Modernizing legacy CRM architecture into a full-featured, multi-tenant platform for Veci Technologies — domain-driven Django + React 19 platform with Go microservices, integrated AI features, live in production and actively maintained.",
+  //   achievements: [
+  //     "Refactored legacy monolithic CRM architecture into a modern multi-tenant platform, migrating core services to Django and React 19 while integrating intelligent, context-aware AI capabilities.",
+  //     "Engineered production AI pipelines and RAG workflows using Django, React 19, LangChain, and pgvector with Pydantic validation to power automated lead scoring, smart document parsing, and semantic search.",
+  //     "Architected a multi-tenant monorepo across 20+ bounded contexts (Leads, Deals, Invoices, Automations) using Django, TypeScript, React 19, PostgreSQL, and Redis with workspace-scoped data isolation.",
+  //     "Built high-performance Go microservices for bulk CSV/XLSX data ingestion, email/reply parsing, and asynchronous job processing, integrated directly into distributed queue channels.",
+  //     "Set up Docker Compose infrastructure with automated test suites and static analysis enforced in CI/CD pipelines via GitHub Actions.",
+  //     "Deployed and actively maintains production and staging environments with high availability and automated monitoring."
+  //   ]
+  // },
   {
     company: 'Tedbree',
     role: 'Full Stack Engineer',

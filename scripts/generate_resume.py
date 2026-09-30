@@ -1,4 +1,4 @@
-"""Generate resume.pdf from the same data used on the portfolio site."""
+"""Generate Olusegun_Ibraheem_Resume.pdf from the same data used on the portfolio site."""
 
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
@@ -144,7 +144,7 @@ PROJECTS = [
 
 def build():
     doc = SimpleDocTemplate(
-        'resume.pdf', pagesize=letter,
+        'Olusegun_Ibraheem_Resume.pdf', pagesize=letter,
         leftMargin=0.60 * inch, rightMargin=0.60 * inch,
         topMargin=0.48 * inch, bottomMargin=0.48 * inch,
         title=f"{PROFILE['name']} — Resume",

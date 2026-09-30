@@ -84,6 +84,16 @@ export default async function ProjectPage({
               Visit live site <ExternalLink size={14} />
             </Button>
           )}
+          {project.demoUrl && (
+            <Button href={project.demoUrl} target="_blank" rel="noreferrer" variant="outline">
+              Try demo <ExternalLink size={14} />
+            </Button>
+          )}
+          {project.websiteUrl && (
+            <Button href={project.websiteUrl} target="_blank" rel="noreferrer" variant="outline">
+              Website / Docs <ExternalLink size={14} />
+            </Button>
+          )}
           {project.stagingUrl && (
             <Button href={project.stagingUrl} target="_blank" rel="noreferrer" variant="outline">
               View staging <ExternalLink size={14} />

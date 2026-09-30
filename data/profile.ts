@@ -9,7 +9,7 @@ export const profile = {
   phone: '+1 (587) 971-9955',
   bio: '8+ years directing high-concurrency backend systems, event-driven microservices, and full-stack platforms. Proven track record shipping 15+ production applications, leading multi-cloud infrastructure, and deploying production AI pipelines and RAG systems.',
   availability: 'Open to senior / lead engineering roles',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/Olusegun_Ibraheem_Resume.pdf',
 };
 
 export const hero = {
