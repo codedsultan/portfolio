@@ -34,7 +34,7 @@ function ExperienceCard({
         <span className="absolute left-[5px] top-5 bottom-[-1rem] w-px bg-line-strong" aria-hidden />
       )}
       <span
-        className={`absolute left-0 top-2 flex h-[10px] w-[10px] items-center justify-center rounded-full border-2 transition-colors ${item.isCurrent ? 'border-blue bg-blue' : 'border-line-strong bg-white'
+        className={`absolute left-0 top-2 flex h-[10px] w-[10px] items-center justify-center rounded-full border-2 transition-colors ${item.isCurrent ? 'border-blue bg-blue' : 'border-line-strong bg-surface'
           }`}
         aria-hidden
       />
@@ -42,7 +42,7 @@ function ExperienceCard({
       <button
         type="button"
         onClick={onOpen}
-        className="group w-full rounded-lg border border-line bg-white p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_8px_24px_-12px_rgba(15,44,102,0.2)]"
+        className="group w-full rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_8px_24px_-12px_rgba(15,44,102,0.2)]"
       >
         <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <div className="min-w-0">

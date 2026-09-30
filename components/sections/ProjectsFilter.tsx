@@ -37,7 +37,7 @@ export function ProjectsFilter({ projects }: { projects: Project[] }) {
               'num-mono rounded-full border px-3.5 py-1.5 text-[12.5px] tracking-tight transition-colors',
               active === cat
                 ? 'border-blue bg-blue text-white'
-                : 'border-line-strong bg-white text-slate hover:border-blue hover:text-blue',
+                : 'border-line-strong bg-surface text-slate hover:border-blue hover:text-blue',
             )}
           >
             {cat === 'all' ? 'All' : CATEGORY_LABELS[cat]}
@@ -50,7 +50,7 @@ export function ProjectsFilter({ projects }: { projects: Project[] }) {
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
-            className="group flex flex-col rounded-lg border border-line bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_12px_28px_-16px_rgba(15,44,102,0.25)]"
+            className="group flex flex-col rounded-lg border border-line bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_12px_28px_-16px_rgba(15,44,102,0.25)]"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-[15px] font-semibold leading-snug text-ink">

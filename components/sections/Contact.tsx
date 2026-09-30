@@ -33,7 +33,7 @@ export function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="rounded-lg border border-line bg-white p-7">
+          <Reveal delay={120} className="rounded-lg border border-line bg-surface p-7">
             <h3 className="font-display text-base font-semibold text-ink">{contact.cardTitle}</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate">{contact.cardText}</p>
 

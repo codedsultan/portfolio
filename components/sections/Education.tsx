@@ -24,7 +24,7 @@ export function Education() {
               </Reveal>
               <div className="space-y-4">
                 {education.map((item, i) => (
-                  <Reveal key={item.school} delay={i * 80} className="rounded-lg border border-line bg-white p-6">
+                  <Reveal key={item.school} delay={i * 80} className="rounded-lg border border-line bg-surface p-6">
                     <div className="flex items-start gap-4">
                       <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-blue-tint text-blue">
                         <GraduationCap size={19} />
@@ -53,7 +53,7 @@ export function Education() {
               </Reveal>
               <div className="space-y-4">
                 {certifications.map((cert, i) => (
-                  <Reveal key={cert.name} delay={i * 80} className="rounded-lg border border-line bg-white p-6">
+                  <Reveal key={cert.name} delay={i * 80} className="rounded-lg border border-line bg-surface p-6">
                     <div className="flex items-start gap-4">
                       <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-blue-tint text-blue">
                         <BadgeCheck size={19} />
@@ -85,7 +85,7 @@ export function Education() {
 
           <div className="mt-12 space-y-6">
             {openSourceContributions.map((contrib, i) => (
-              <Reveal key={contrib.project} delay={i * 80} className="rounded-lg border border-line bg-white p-6 sm:p-8">
+              <Reveal key={contrib.project} delay={i * 80} className="rounded-lg border border-line bg-surface p-6 sm:p-8">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
                   <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-blue-tint text-blue">
                     <GitMerge size={20} />

@@ -34,7 +34,7 @@ export function Skills() {
             <Reveal
               key={group.category}
               delay={i * 70}
-              className="rounded-lg border border-line bg-white p-5"
+              className="rounded-lg border border-line bg-surface p-5"
             >
               <p className="num-mono text-[12px] uppercase tracking-[0.08em] text-blue">
                 {group.label}
@@ -58,7 +58,7 @@ export function Skills() {
               return (
                 <div
                   key={practice.title}
-                  className="flex items-center gap-3 bg-white px-5 py-4 transition-colors hover:bg-blue-tint"
+                  className="flex items-center gap-3 bg-surface px-5 py-4 transition-colors hover:bg-blue-tint"
                 >
                   <Icon size={17} className="flex-shrink-0 text-blue" />
                   <span className="text-[14.5px] font-medium text-ink-soft">{practice.title}</span>

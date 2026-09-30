@@ -113,7 +113,7 @@ export default async function ProjectPage({
             { label: 'Year', value: project.year },
             { label: 'Stack size', value: `${project.technologies.length} tools` },
           ].map((item) => (
-            <div key={item.label} className="bg-white px-4 py-4">
+            <div key={item.label} className="bg-surface px-4 py-4">
               <p className="num-mono text-[11px] uppercase tracking-[0.06em] text-slate-light">
                 {item.label}
               </p>
@@ -180,7 +180,7 @@ export default async function ProjectPage({
                   href={svc.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex flex-col gap-1.5 rounded-lg border border-line bg-white p-4 transition-colors hover:border-blue"
+                  className="group flex flex-col gap-1.5 rounded-lg border border-line bg-surface p-4 transition-colors hover:border-blue"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-display text-[14px] font-semibold text-ink group-hover:text-blue">
@@ -199,7 +199,7 @@ export default async function ProjectPage({
           {prev ? (
             <Link
               href={`/projects/${prev.slug}`}
-              className="group rounded-lg border border-line bg-white p-5 transition-colors hover:border-blue"
+              className="group rounded-lg border border-line bg-surface p-5 transition-colors hover:border-blue"
             >
               <span className="num-mono inline-flex items-center gap-1.5 text-[12px] text-slate-light">
                 <ArrowLeft size={12} /> Previous
@@ -214,7 +214,7 @@ export default async function ProjectPage({
           {next ? (
             <Link
               href={`/projects/${next.slug}`}
-              className="group rounded-lg border border-line bg-white p-5 text-right transition-colors hover:border-blue"
+              className="group rounded-lg border border-line bg-surface p-5 text-right transition-colors hover:border-blue"
             >
               <span className="num-mono inline-flex items-center gap-1.5 text-[12px] text-slate-light">
                 Next <ArrowRight size={12} />

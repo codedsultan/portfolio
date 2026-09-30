@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { profile } from '@/data/profile';
 import { cn } from '@/lib/utils';
 
@@ -37,7 +38,7 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled ? 'border-b border-line bg-white/80 backdrop-blur-md' : 'border-b border-transparent bg-transparent',
+        scrolled ? 'border-b border-line bg-surface/80 backdrop-blur-md' : 'border-b border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-16 items-center justify-between">
@@ -67,29 +68,33 @@ export function Navbar() {
           >
             Contact
           </a>
+          <ThemeToggle />
           <a
             href={profile.resumeUrl}
             download
-            className="inline-flex items-center gap-1.5 rounded-md border border-line-strong bg-white px-4 py-2 text-[13px] font-medium text-ink transition-colors hover:border-blue hover:text-blue"
+            className="inline-flex items-center gap-1.5 rounded-md border border-line-strong bg-surface px-4 py-2 text-[13px] font-medium text-ink transition-colors hover:border-blue hover:text-blue"
           >
             Résumé <ArrowUpRight size={13} />
           </a>
         </div>
 
-        <button
-          type="button"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-md text-ink lg:hidden"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-9 w-9 items-center justify-center rounded-md text-ink"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </Container>
 
       <div
         className={cn(
-          'overflow-hidden border-t border-line bg-white transition-[max-height] duration-300 ease-out lg:hidden',
+          'overflow-hidden border-t border-line bg-surface transition-[max-height] duration-300 ease-out lg:hidden',
           open ? 'max-h-96' : 'max-h-0 border-t-0',
         )}
       >

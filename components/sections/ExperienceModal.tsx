@@ -51,7 +51,7 @@ export function ExperienceModal({ item, onClose }: ExperienceModalProps) {
       {/* Panel */}
       <div
         ref={panelRef}
-        className="relative z-10 flex h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border border-line bg-white sm:h-full sm:max-w-[520px] sm:rounded-none sm:border-l sm:border-t-0"
+        className="relative z-10 flex h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border border-line bg-surface sm:h-full sm:max-w-[520px] sm:rounded-none sm:border-l sm:border-t-0"
       >
         {/* Header */}
         <div className="flex flex-shrink-0 items-start justify-between gap-4 border-b border-line px-6 py-5">
@@ -116,7 +116,7 @@ export function ExperienceModal({ item, onClose }: ExperienceModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="num-mono w-full rounded-md border border-line-strong bg-white py-2.5 text-[13px] font-medium text-ink-soft transition-colors hover:border-blue hover:text-blue"
+            className="num-mono w-full rounded-md border border-line-strong bg-surface py-2.5 text-[13px] font-medium text-ink-soft transition-colors hover:border-blue hover:text-blue"
           >
             Close
           </button>

@@ -26,7 +26,7 @@ export function Projects() {
             <Reveal
               key={project.slug}
               delay={i * 100}
-              className="group flex flex-col rounded-lg border border-line bg-white p-6 transition-all hover:-translate-y-1 hover:border-blue hover:shadow-[0_20px_40px_-20px_rgba(15,44,102,0.3)]"
+              className="group flex flex-col rounded-lg border border-line bg-surface p-6 transition-all hover:-translate-y-1 hover:border-blue hover:shadow-[0_20px_40px_-20px_rgba(15,44,102,0.3)]"
             >
               <div className="flex items-center justify-between">
                 <span className="num-mono text-[12px] text-slate-light">

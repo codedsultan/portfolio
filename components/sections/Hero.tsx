@@ -15,7 +15,7 @@ export function Hero() {
         <div className="grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-10">
           <div>
             <Reveal>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-line-strong bg-white px-3.5 py-1.5">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface px-3.5 py-1.5">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-blue" />
@@ -68,7 +68,7 @@ export function Hero() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="group inline-flex items-center gap-2 rounded-md border border-line bg-white px-3 py-2 text-sm transition-colors hover:border-blue"
+                        className="group inline-flex items-center gap-2 rounded-md border border-line bg-surface px-3 py-2 text-sm transition-colors hover:border-blue"
                       >
                         <span className="font-medium text-ink">{item.label}</span>
                         <span className="num-mono text-[12px] text-slate-light">{item.detail}</span>
