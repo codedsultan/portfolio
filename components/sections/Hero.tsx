@@ -55,6 +55,7 @@ export function Hero() {
               </div>
             </Reveal>
 
+            {/* Currently shipping — hidden, revisit later
             <Reveal delay={380}>
               <div className="mt-12 border-t border-line pt-6">
                 <p className="num-mono mb-3 text-[12px] uppercase tracking-[0.08em] text-slate-light">
@@ -81,6 +82,7 @@ export function Hero() {
                 </ul>
               </div>
             </Reveal>
+            */}
           </div>
 
           <Reveal delay={160} className="relative mx-auto w-full max-w-[360px] lg:max-w-none">
