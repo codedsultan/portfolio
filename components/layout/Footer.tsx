@@ -39,9 +39,8 @@ export function Footer() {
         </div>
       </Container>
 
-      <Container className="flex flex-col gap-2 border-t border-line py-6 text-xs text-slate-light sm:flex-row sm:items-center sm:justify-between">
-        <span className="num-mono">© {year} {profile.name}. All rights reserved.</span>
-        <span className="num-mono">Built with Next.js · Deployed on Vercel</span>
+      <Container className="border-t border-line py-6 text-xs text-slate-light">
+        <span className="num-mono block text-center">© {year} {profile.name}. All rights reserved.</span>
       </Container>
     </footer>
   );

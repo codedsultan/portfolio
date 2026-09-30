@@ -8,10 +8,14 @@ import { hero, profile } from '@/data/profile';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-      {/* <div className="bp-grid bp-grid-fade absolute inset-0 -z-10" aria-hidden /> */}
-      <div className="absolute inset-0 -z-10" aria-hidden />
+      {/* Aurora orbs — no negative z-index; content sits above via z-10 */}
+      <div className="absolute inset-0" aria-hidden>
+        <div className="aurora-orb aurora-orb-1" />
+        <div className="aurora-orb aurora-orb-2" />
+        <div className="aurora-orb aurora-orb-3" />
+      </div>
 
-      <Container>
+      <Container className="relative z-10">
         <div className="grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-10">
           <div>
             <Reveal>
