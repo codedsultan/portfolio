@@ -26,6 +26,69 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'xurl-fyi',
+    title: 'xurl.fyi — URL Shortener',
+    description:
+      'High-performance URL shortener built on a Go API backend and Next.js frontend.',
+    fullDescription:
+      'xurl.fyi is a production URL-shortening service built on Go and Next.js. The Go backend handles link creation, redirection, analytics, and user management with a focus on correctness and performance. A deep architectural review uncovered critical bugs — context-propagation leaks causing goroutine leaks, Redis client misuse in health checks, and sequential batch operations that should have used worker pools — all since resolved.',
+    technologies: ['Go', 'Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker'],
+    category: 'fullstack',
+    githubUrl: null,
+    liveUrl: 'https://xurl.fyi/',
+    isFeatured: true,
+    sortOrder: 5,
+    year: '2026',
+    role: 'Full-Stack Engineer',
+    capacity: 'Product build',
+    responsibilities: [
+      'Conducted a deep architectural review of the Go backend, identifying critical concurrency and resource-leak bugs',
+      'Fixed context propagation across goroutines and Redis client lifecycle management',
+      'Replaced sequential batch processing with concurrent worker-pool patterns',
+    ],
+    highlights: [
+      'Production URL shortening with click analytics',
+      'Concurrency-safe Go backend with proper context and resource management',
+    ],
+  },
+  {
+    slug: 'innermost',
+    title: 'InnerMost',
+    description:
+      'A mind-reading game — gamified from a childhood prediction trick I invented. Players put on a mental performance: correctly guess a number or word someone is secretly thinking of, compete on leaderboards, and challenge friends in real time.',
+    fullDescription:
+      'InnerMost is a side project born from a prediction trick I created as a kid — a mathematical and pattern-based technique that lets you reliably guess a number or word someone is thinking of, with no prior knowledge. I gamified it into a live competitive app so others could experience the effect and compete on who could "read minds" most accurately.\n\nThe platform runs two primary game modes. Golden Mind challenges players to guess a hidden number through a structured sequence of questions — the algorithm narrows the answer to a single value regardless of what the subject picks. Golden Eye handles word and concept prediction, using categorical logic to converge on the target through a series of binary splits.\n\nThe backend is built on NestJS with PostgreSQL and Redis. WebSockets power the real-time multiplayer sessions — both players see state updates synchronously as the game progresses. An in-app credit system gates game plays and awards credits for wins, correct predictions, and streaks. A friends system lets players add each other and send direct game challenges. Leaderboards rank players by accuracy, win rate, and credits earned. The Next.js frontend handles auth, game flows, friend management, and the live leaderboard dashboard. The full stack is deployed on AWS.',
+    technologies: [
+      'Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Redis',
+      'WebSockets', 'AWS',
+    ],
+    category: 'fullstack',
+    githubUrl: null,
+    liveUrl: 'https://innermost.live/',
+    isFeatured: true,
+    sortOrder: 2,
+    year: '2025–present',
+    role: 'Creator & Full-Stack Engineer',
+    capacity: 'Solo build — personal project',
+    responsibilities: [
+      'Invented the underlying prediction algorithm and designed both game modes (Golden Mind for numbers, Golden Eye for words/concepts) as structured binary-narrowing sequences.',
+      'Built the NestJS backend with PostgreSQL for persistent player state, game history, credits, and leaderboards, and Redis for real-time session state and presence.',
+      'Implemented WebSocket-based multiplayer sessions so both players see live game state transitions without polling.',
+      'Designed and built the in-app credit economy: credits spent to play, earned for wins and prediction streaks, with a balance ledger and transaction history per player.',
+      'Built the friends and challenge system: send/accept friend requests, view friend activity, and initiate direct 1v1 game challenges.',
+      'Implemented global and friend-scoped leaderboards ranked by win rate, accuracy score, and total credits earned.',
+      'Built the Next.js frontend covering auth, both game mode UIs, friend management, live leaderboard dashboard, and credit wallet.',
+      'Deployed the full stack on AWS.',
+    ],
+    highlights: [
+      'The core algorithm works — reliably converges on any number or word through a fixed question sequence',
+      'Real-time multiplayer via WebSockets — both players see the same game state update live',
+      'Full credit economy with earn/spend mechanics, streaks, and a transaction ledger',
+      'Two distinct game modes: Golden Mind (numbers) and Golden Eye (words/concepts)',
+      'Friends system with direct challenge invites and a friend-scoped leaderboard',
+    ],
+  },
+  {
     slug: 'docmind',
     title: 'DocMind',
     description:
@@ -101,43 +164,7 @@ export const projects: Project[] = [
   //     'Grafana observability stack across all services with structured alerting',
   //   ],
   // },
-  {
-    slug: 'innermost',
-    title: 'InnerMost',
-    description:
-      'A mind-reading game — gamified from a childhood prediction trick I invented. Players put on a mental performance: correctly guess a number or word someone is secretly thinking of, compete on leaderboards, and challenge friends in real time.',
-    fullDescription:
-      'InnerMost is a side project born from a prediction trick I created as a kid — a mathematical and pattern-based technique that lets you reliably guess a number or word someone is thinking of, with no prior knowledge. I gamified it into a live competitive app so others could experience the effect and compete on who could "read minds" most accurately.\n\nThe platform runs two primary game modes. Golden Mind challenges players to guess a hidden number through a structured sequence of questions — the algorithm narrows the answer to a single value regardless of what the subject picks. Golden Eye handles word and concept prediction, using categorical logic to converge on the target through a series of binary splits.\n\nThe backend is built on NestJS with PostgreSQL and Redis. WebSockets power the real-time multiplayer sessions — both players see state updates synchronously as the game progresses. An in-app credit system gates game plays and awards credits for wins, correct predictions, and streaks. A friends system lets players add each other and send direct game challenges. Leaderboards rank players by accuracy, win rate, and credits earned. The Next.js frontend handles auth, game flows, friend management, and the live leaderboard dashboard. The full stack is deployed on AWS.',
-    technologies: [
-      'Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Redis',
-      'WebSockets', 'AWS',
-    ],
-    category: 'fullstack',
-    githubUrl: null,
-    liveUrl: 'https://innermost.live/',
-    isFeatured: true,
-    sortOrder: 2,
-    year: '2025–present',
-    role: 'Creator & Full-Stack Engineer',
-    capacity: 'Solo build — personal project',
-    responsibilities: [
-      'Invented the underlying prediction algorithm and designed both game modes (Golden Mind for numbers, Golden Eye for words/concepts) as structured binary-narrowing sequences.',
-      'Built the NestJS backend with PostgreSQL for persistent player state, game history, credits, and leaderboards, and Redis for real-time session state and presence.',
-      'Implemented WebSocket-based multiplayer sessions so both players see live game state transitions without polling.',
-      'Designed and built the in-app credit economy: credits spent to play, earned for wins and prediction streaks, with a balance ledger and transaction history per player.',
-      'Built the friends and challenge system: send/accept friend requests, view friend activity, and initiate direct 1v1 game challenges.',
-      'Implemented global and friend-scoped leaderboards ranked by win rate, accuracy score, and total credits earned.',
-      'Built the Next.js frontend covering auth, both game mode UIs, friend management, live leaderboard dashboard, and credit wallet.',
-      'Deployed the full stack on AWS.',
-    ],
-    highlights: [
-      'The core algorithm works — reliably converges on any number or word through a fixed question sequence',
-      'Real-time multiplayer via WebSockets — both players see the same game state update live',
-      'Full credit economy with earn/spend mechanics, streaks, and a transaction ledger',
-      'Two distinct game modes: Golden Mind (numbers) and Golden Eye (words/concepts)',
-      'Friends system with direct challenge invites and a friend-scoped leaderboard',
-    ],
-  },
+
   // {
   //   slug: 'x-socials-platform',
   //   title: 'X-Socials Platform',
@@ -253,32 +280,7 @@ export const projects: Project[] = [
       'HMAC-secured endpoints with signed callbacks to the Laravel host',
     ],
   },
-  {
-    slug: 'xurl-fyi',
-    title: 'xurl.fyi — URL Shortener',
-    description:
-      'High-performance URL shortener built on a Go API backend and Next.js frontend.',
-    fullDescription:
-      'xurl.fyi is a production URL-shortening service built on Go and Next.js. The Go backend handles link creation, redirection, analytics, and user management with a focus on correctness and performance. A deep architectural review uncovered critical bugs — context-propagation leaks causing goroutine leaks, Redis client misuse in health checks, and sequential batch operations that should have used worker pools — all since resolved.',
-    technologies: ['Go', 'Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker'],
-    category: 'fullstack',
-    githubUrl: null,
-    liveUrl: 'https://xurl.fyi/',
-    isFeatured: true,
-    sortOrder: 5,
-    year: '2026',
-    role: 'Full-Stack Engineer',
-    capacity: 'Product build',
-    responsibilities: [
-      'Conducted a deep architectural review of the Go backend, identifying critical concurrency and resource-leak bugs',
-      'Fixed context propagation across goroutines and Redis client lifecycle management',
-      'Replaced sequential batch processing with concurrent worker-pool patterns',
-    ],
-    highlights: [
-      'Production URL shortening with click analytics',
-      'Concurrency-safe Go backend with proper context and resource management',
-    ],
-  },
+
   // {
   //   slug: 'history-graphic-generator',
   //   title: 'History Graphic Generator',
