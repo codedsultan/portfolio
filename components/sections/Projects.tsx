@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight, GithubIcon } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
@@ -69,7 +69,7 @@ export function Projects() {
                       aria-label={`${project.title} on GitHub`}
                       className="text-slate-light transition-colors hover:text-blue"
                     >
-                      <Github size={16} />
+                      <GithubIcon size={16} />
                     </a>
                   )}
                   {project.liveUrl && (
