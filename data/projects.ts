@@ -222,34 +222,34 @@ export const projects: Project[] = [
       'Live in production with active ongoing maintenance',
     ],
   },
-  // {
-  //   slug: 'writerix',
-  //   title: 'WriterIX',
-  //   description:
-  //     'Multi-tenant AI-powered blog generation SaaS — from topic ideation to published post, fully automated.',
-  //   fullDescription:
-  //     'WriterIX is a production SaaS platform that lets tenants generate, schedule, and publish SEO-optimised blog content using AI. The Laravel backend handles multi-tenancy, billing, and a domain-driven namespace architecture. AI generation is handled by a dedicated FastAPI + Celery microservice which orchestrates LLM calls, image generation, and featured-image selection, communicating results back to Laravel via webhooks. Real-time generation progress streams to the React frontend through Laravel Reverb WebSockets.',
-  //   technologies: ['Laravel', 'Inertia.js', 'React', 'TypeScript', 'MySQL', 'Redis', 'Laravel Horizon', 'Laravel Reverb', 'Docker', 'Stripe', 'GitHub Actions'],
-  //   category: 'fullstack',
-  //   githubUrl: null,
-  //   liveUrl: 'https://writerix.xurl.fyi/',
-  //   isFeatured: false,
-  //   sortOrder: 6,
-  //   year: '2026',
-  //   role: 'Founder & Lead Engineer',
-  //   capacity: 'Solo build',
-  //   responsibilities: [
-  //     'Architected a domain-first, multi-tenant Laravel backend with tenant-scoped helpers',
-  //     'Integrated the WriterIX AI Pipeline microservice via webhook callbacks for async content generation',
-  //     'Implemented real-time generation progress streaming via Laravel Reverb WebSockets',
-  //     'Set up CI/CD via GitHub Actions for Docker cluster deployments',
-  //   ],
-  //   highlights: [
-  //     'End-to-end automated blog pipeline from topic to published post',
-  //     'Multi-tenant isolation with per-tenant billing and plan controls',
-  //     'Live generation progress streamed in real time to the dashboard',
-  //   ],
-  // },
+  {
+    slug: 'writerix',
+    title: 'WriterIX',
+    description:
+      'Multi-tenant AI-powered blog generation SaaS — from topic ideation to published post, fully automated.',
+    fullDescription:
+      'WriterIX is a production SaaS platform that lets tenants generate, schedule, and publish SEO-optimised blog content using AI. The Laravel backend handles multi-tenancy, billing, and a domain-driven namespace architecture. AI generation is handled by a dedicated FastAPI + Celery microservice which orchestrates LLM calls, image generation, and featured-image selection, communicating results back to Laravel via webhooks. Real-time generation progress streams to the React frontend through Laravel Reverb WebSockets.',
+    technologies: ['Laravel', 'Inertia.js', 'React', 'TypeScript', 'MySQL', 'Redis', 'Laravel Horizon', 'Laravel Reverb', 'Docker', 'Stripe', 'GitHub Actions'],
+    category: 'fullstack',
+    githubUrl: null,
+    liveUrl: 'https://writerix.xurl.fyi/',
+    isFeatured: false,
+    sortOrder: 6,
+    year: '2026',
+    role: 'Founder & Lead Engineer',
+    capacity: 'Solo build',
+    responsibilities: [
+      'Architected a domain-first, multi-tenant Laravel backend with tenant-scoped helpers',
+      'Integrated the WriterIX AI Pipeline microservice via webhook callbacks for async content generation',
+      'Implemented real-time generation progress streaming via Laravel Reverb WebSockets',
+      'Set up CI/CD via GitHub Actions for Docker cluster deployments',
+    ],
+    highlights: [
+      'End-to-end automated blog pipeline from topic to published post',
+      'Multi-tenant isolation with per-tenant billing and plan controls',
+      'Live generation progress streamed in real time to the dashboard',
+    ],
+  },
   {
     slug: 'writerix-ai-pipeline',
     title: 'WriterIX AI Pipeline',
