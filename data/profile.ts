@@ -7,7 +7,7 @@ export const profile = {
   location: 'Calgary, Alberta, Canada',
   email: 'codesultan369@gmail.com',
   phone: '+1 (587) 971-9955',
-  bio: '8+ years directing high-concurrency backend systems, event-driven microservices, and full-stack platforms. Proven track record shipping 15+ production applications, leading multi-cloud infrastructure, and deploying production AI pipelines and RAG systems.',
+  bio: '9+ years directing high-concurrency backend systems, event-driven microservices, and full-stack platforms. Proven track record shipping 15+ production applications, leading multi-cloud infrastructure, and deploying production AI pipelines and RAG systems.',
   availability: 'Open to senior / lead engineering roles',
   resumeUrl: '/Olusegun_Ibraheem_Resume.pdf',
 };
@@ -18,7 +18,7 @@ export const hero = {
   name: 'Olusegun Ibraheem',
   headline: 'I architect systems that scale — and ship them to production.',
   intro:
-    'Senior Full-Stack Engineer with 8+ years delivering microservices, event-driven architecture, and cloud-native platforms in fintech and global workforce software. From system design to Grafana dashboards, I own the full delivery lifecycle.',
+    'Senior Full-Stack Engineer with 9+ years delivering microservices, event-driven architecture, and cloud-native platforms in fintech and global workforce software. From system design to Grafana dashboards, I own the full delivery lifecycle.',
   primaryCta: { label: 'View selected work', target: '#work' },
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
@@ -34,9 +34,10 @@ export const about = {
   title: 'About',
   tagline: 'Turning complex, ambiguous problems into production-grade distributed systems.',
   summary:
-    'I\'m a Senior Full-Stack Engineer with 8+ years architecting and shipping production systems for fintech and global workforce platforms. My background spans event-driven microservices in Node.js, NestJS, and Laravel; React and Next.js on the front end; and the AWS / Docker / CI-CD layer that gets everything reliably into production. I care deeply about system design, TDD, observability, and raising the engineering bar on every team I join — currently serving as Engineering Lead at Tech1M while experimenting product ideas on the side.',
+    'I\'m a Senior Full-Stack Engineer with 9+ years architecting and shipping production systems for fintech and global workforce platforms. My background spans event-driven microservices in Node.js, NestJS, and Laravel; React and Next.js on the front end; and the AWS / Docker / CI-CD layer that gets everything reliably into production. I care deeply about system design, TDD, observability, and raising the engineering bar on every team I join.',
+  //— currently serving as Engineering Lead at Tech1M while experimenting product ideas on the side.',
   metrics: [
-    { value: '8+', label: 'Years of experience' },
+    { value: '9+', label: 'Years of experience' },
     { value: '3', label: 'Cloud platforms (AWS · GCP · Azure)' },
     // { value: '3', label: 'Self-built SaaS products live' },
     // { value: 'PMP', label: 'Certified Project Manager' },
@@ -60,7 +61,7 @@ export const footer = {
 export const seo = {
   title: 'Olusegun Ibraheem — Software Engineer',
   description:
-    'Senior Full-Stack Engineer with 8+ years building microservices and event-driven systems for fintech and global workforce platforms across AWS, GCP, and Azure. Based in Calgary, Alberta.',
+    'Senior Full-Stack Engineer with 9+ years building microservices and event-driven systems for fintech and global workforce platforms across AWS, GCP, and Azure. Based in Calgary, Alberta.',
   keywords: [
     'Olusegun Ibraheem',
     'full stack engineer',
