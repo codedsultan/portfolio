@@ -228,7 +228,7 @@ export const projects: Project[] = [
     description:
       'Multi-tenant AI content SaaS — workspaces bring their own LLM keys, pick a provider, and run end-to-end blog pipelines with live review gates, RAG knowledge bases, and social publishing.',
     fullDescription:
-      'WriterIX 2.0 is a complete ground-up rebuild of the platform on a Django + Inertia/React stack. The architecture is domain-driven: each feature area (pipelines, runs, content, brand, knowledge, sources, destinations, billing, social) lives in its own domain under app/domains/ with models, services, selectors, tasks, and tests kept together.\n\nThe AI layer is fully integrated — no separate microservice. A LangGraph post pipeline (app/ai/) orchestrates every content run: topic research → outline → section writing → SEO metadata → graphics. The facade pattern enforces that no domain imports LangChain types directly; all AI calls flow through ai.facade. Workspaces bring their own API keys (BYOK) across five providers — Anthropic, OpenAI, Google Gemini, Groq, and OpenRouter — with per-workspace key encryption and a metering layer that tracks token spend per run.\n\nGraphics generation runs in a separate Node renderer sidecar (Fastify + Satori → resvg → sharp), supporting six template families at four sizes each. The renderer accepts a typed render request schema and returns an image buffer; Django dispatches render jobs via the internal dispatch-kernel.\n\nKnowledge bases are backed by pgvector RAG — workspaces can attach source documents, RSS feeds, and URLs; the ingestion pipeline chunks, embeds, and retrieves context at generation time. A scheduling layer handles recurring pipeline runs and publishes finished posts directly to connected destinations (CMS connectors, social platforms).\n\nThe frontend runs on Inertia.js with React and TypeScript inside the Django project. Billing and plan controls are handled via Stripe with workspace-scoped subscription management. The full stack ships as Docker images; the marketing site is a static export deployed separately behind Nginx.',
+      'WriterIX is a multi-tenant SaaS platform for AI-driven content generation. The architecture is domain-driven: pipelines, runs, content, brand, knowledge, sources, destinations, billing, and social each live in their own domain with models, services, selectors, tasks, and tests kept together.\n\nThe AI layer uses a LangGraph pipeline that orchestrates every content run: topic research → outline → section writing → SEO metadata → graphics. The facade pattern keeps LangChain types out of domain code; all AI calls flow through a single entry point. Workspaces bring their own API keys (BYOK) across five providers — Anthropic, OpenAI, Google Gemini, Groq, and OpenRouter — with per-workspace key encryption and a metering layer that tracks token spend per run.\n\nGraphics generation runs in a Node renderer sidecar (Fastify + Satori → resvg → sharp) supporting six template families at four sizes. Knowledge bases are backed by pgvector RAG — workspaces attach documents, RSS feeds, and URLs; the ingestion pipeline chunks, embeds, and retrieves context at generation time. A scheduling layer handles recurring pipeline runs and publishes finished posts to connected destinations.\n\nThe frontend runs on Inertia.js with React and TypeScript. Billing is handled via Stripe with workspace-scoped subscription management. The platform ships as Docker images; the marketing site is a static export deployed separately behind Nginx.',
     technologies: [
       'Python', 'Django', 'Inertia.js', 'React', 'TypeScript',
       'PostgreSQL', 'pgvector', 'Redis', 'Celery', 'LangChain', 'LangGraph',
@@ -245,21 +245,20 @@ export const projects: Project[] = [
     role: 'Founder & Lead Engineer',
     capacity: 'Solo build',
     responsibilities: [
-      'Rebuilt WriterIX from scratch on Django with a domain-driven architecture — each domain owns its models, services, selectors, tasks, and tests.',
-      'Designed and implemented the integrated LangGraph AI pipeline replacing the old standalone microservice — topic research, outline, section writing, SEO metadata, and graphics generation in a single orchestrated graph.',
-      'Built the BYOK (Bring Your Own Key) system supporting five LLM providers (Anthropic, OpenAI, Google Gemini, Groq, OpenRouter) with per-workspace encrypted key storage and token-spend metering.',
-      'Implemented pgvector-backed RAG knowledge bases with ingestion pipelines for documents, RSS feeds, and URLs, retrieved as context at generation time.',
-      'Built the Node renderer sidecar (Fastify + Satori) for graphics generation — six template families at four sizes, dispatched via the internal dispatch-kernel.',
-      'Designed workspace-scoped multi-tenancy with ULID public IDs enforced at the query layer, review gates in the editor, and a full Stripe billing integration.',
-      'Set up the two-tier deployment: Django app as Docker image for the platform, static-export Nginx image (ghcr.io/quantsultan/writerix/website) for the marketing site.',
+      'Architected the domain-driven Django backend — each domain owns its models, services, selectors, tasks, and tests.',
+      'Designed the LangGraph AI pipeline for end-to-end content runs: topic research, outline, section writing, SEO metadata, and graphics in a single orchestrated graph.',
+      'Built the BYOK system supporting five LLM providers (Anthropic, OpenAI, Google Gemini, Groq, OpenRouter) with per-workspace encrypted key storage and token-spend metering.',
+      'Implemented pgvector-backed RAG knowledge bases with ingestion pipelines for documents, RSS feeds, and URLs.',
+      'Built the Node renderer sidecar (Fastify + Satori) for graphics generation — six template families at four sizes.',
+      'Designed workspace-scoped multi-tenancy with ULID public IDs, review gates in the content editor, and Stripe billing.',
+      'Deployed as two independent images: the Django app and a static-export Nginx image for the marketing site.',
     ],
     highlights: [
-      'Integrated LangGraph pipeline — AI pipeline lives inside the app, not as a separate service',
+      'LangGraph pipeline orchestrates full content runs: topic → outline → sections → SEO → graphics',
       'BYOK across 5 providers: Anthropic, OpenAI, Google Gemini, Groq, OpenRouter',
-      'pgvector RAG knowledge base — workspace documents and sources retrieved at generation time',
-      'Node renderer sidecar for graphics: 6 template families × 4 sizes',
-      'Domain-driven Django architecture with import-linter enforcing AI facade boundaries',
-      'Two-tier deployment: app image + static site image, mirroring Veci CRM dispatch pattern',
+      'pgvector RAG — workspace documents and sources retrieved as context at generation time',
+      'Node renderer sidecar for social graphics: 6 template families × 4 sizes',
+      'Domain-driven architecture with import-linter enforcing AI facade boundaries',
     ],
   },
 
