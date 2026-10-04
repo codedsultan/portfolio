@@ -242,7 +242,7 @@ export const projects: Project[] = [
     isFeatured: true,
     sortOrder: 5,
     year: '2026',
-    role: 'Founder & Lead Engineer',
+    role: 'Architect & Full-Stack Engineer',
     capacity: 'Solo build',
     responsibilities: [
       'Architected the domain-driven Django backend — each domain owns its models, services, selectors, tasks, and tests.',
