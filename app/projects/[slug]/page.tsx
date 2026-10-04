@@ -85,7 +85,7 @@ export default async function ProjectPage({
         <div className="mt-8 flex flex-wrap items-center gap-3">
           {project.liveUrl && (
             <Button href={project.liveUrl} target="_blank" rel="noreferrer" variant="primary">
-              Visit live site <ExternalLink size={14} />
+              {project.liveUrlLabel ?? 'Visit live site'} <ExternalLink size={14} />
             </Button>
           )}
           {project.demoUrl && (

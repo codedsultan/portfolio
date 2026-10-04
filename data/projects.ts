@@ -7,6 +7,7 @@ export interface Project {
   category: 'fullstack' | 'backend' | 'platform';
   githubUrl: string | null;
   liveUrl: string | null;
+  liveUrlLabel?: string;
   stagingUrl?: string | null;
   websiteUrl?: string | null;
   demoUrl?: string | null;
@@ -197,6 +198,7 @@ export const projects: Project[] = [
     category: 'platform',
     githubUrl: null,
     liveUrl: 'https://app-crm.xurl.fyi/',
+    liveUrlLabel: 'View staging app',
     stagingUrl: null,
     websiteUrl: 'https://crm.xurl.fyi/',
     demoUrl: 'https://demo-crm.xurl.fyi/',
@@ -237,6 +239,7 @@ export const projects: Project[] = [
     category: 'fullstack',
     githubUrl: null,
     liveUrl: 'https://app-writerix.xurl.fyi/',
+    liveUrlLabel: 'View staging app',
     websiteUrl: 'https://writerix.xurl.fyi/',
     demoUrl: 'https://demo-writerix.xurl.fyi/',
     isFeatured: true,
