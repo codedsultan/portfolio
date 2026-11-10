@@ -27,6 +27,61 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'argus',
+    title: 'Argus — Traceable AI Agent',
+    description:
+      'A tool-calling shop agent you can replay without an API key and inspect span by span. Python/FastAPI agent core, OpenTelemetry traces, a customer storefront, and a trace-first inspector, all deployed.',
+    fullDescription:
+      'Argus answers questions about Argus Field Supply, a fictional field-optics shop, and is built around one loop: prompt, agent, tool call, shop API, replayed LLM, answer, trace. The public demo runs in deterministic replay mode, so it needs no provider key and returns the same answers every time, which makes the agent testable in CI. Every request produces an OpenTelemetry trace covering the agent workflow, the LLM call, the selected tool and the downstream API call, with prompt and completion content redacted before storage. Two Next.js frontends sit on a shared contract: a customer storefront with an assistant workspace and status page, and an engineer-facing inspector that exposes tool calls, arguments, results and trace IDs. The public edge is hardened as a first-class concern: allowlisted prompts, request-size caps, per-client rate limits, a global concurrency cap, destructive tools removed, and replay misses that fail closed. The next phase adds a hybrid-retrieval RAG layer with cited answers, claim-level verification and abstention, evaluated on a hand-written golden set that is half unanswerable.',
+    technologies: [
+      'Python', 'FastAPI', 'LangChain', 'OpenTelemetry', 'Jaeger',
+      'Next.js', 'TypeScript', 'Tailwind CSS',
+      'Docker', 'GitHub Actions',
+    ],
+    category: 'fullstack',
+    githubUrl: 'https://github.com/codedsultan/argus-ai',
+    // TODO: confirm the live Argus URL before deploying
+    liveUrl: 'https://argus.xurl.fyi',
+    liveUrlLabel: 'View live demo (replay mode)',
+    isFeatured: true,
+    sortOrder: 1,
+    year: '2026',
+    role: 'Creator & AI Engineer',
+    capacity: 'Solo build',
+    responsibilities: [
+      'Designed the agent core: a stateless FastAPI service running a LangChain tool loop over ten typed shop tools, with a client-owned history contract and a token-budget trimmer.',
+      'Built the deterministic replay layer (VCR-style cassettes for two model providers) so the full agent path runs offline, identically, in CI and in the public demo.',
+      'Instrumented every request with OpenTelemetry GenAI spans, with a collector pipeline that normalizes attributes and redacts prompt and completion content.',
+      'Hardened the public edge: prompt allowlist, 16 KiB body cap, per-client rate limit, global concurrency cap, destructive tools removed, fail-closed replay, and a bearer token between the BFFs and the backend.',
+      'Built the Next.js customer storefront with an assistant workspace and a server-side BFF that returns only normalized customer data, plus a password-protected operations console with a span waterfall viewer.',
+      'Built a second, trace-first Next.js client that shows tool calls, arguments, results, metrics and trace IDs for the same answers.',
+      'Wrote a test suite of 49 tests covering the replay matcher, history trimming, determinism, public-mode guards, smoke prompts and telemetry, plus module guides documenting each design decision.',
+    ],
+    highlights: [
+      'Agent runs deterministically offline: same prompt, same answer, no API key',
+      'Every answer has an inspectable trace, with content redacted by default',
+      'Public edge designed to fail closed, with the residual risks documented',
+      'Two frontends, one backend contract: customer lens and engineer lens',
+    ],
+    services: [
+      {
+        name: 'argus-ai',
+        repo: 'https://github.com/codedsultan/argus-ai',
+        description: 'Agent core, shop API, replay cassettes, collector and public edge',
+      },
+      {
+        name: 'argus-frontend',
+        repo: 'https://github.com/codedsultan/argus-frontend',
+        description: 'Customer storefront, assistant workspace and operations console',
+      },
+      {
+        name: 'argus-agent-web',
+        repo: 'https://github.com/codedsultan/argus-agent-web',
+        description: 'Trace-first inspector UI for tool calls and trace IDs',
+      },
+    ],
+  },
+  {
     slug: 'xurl-fyi',
     title: 'xurl.fyi — URL Shortener',
     description:
@@ -38,7 +93,7 @@ export const projects: Project[] = [
     githubUrl: null,
     liveUrl: 'https://xurl.fyi/',
     isFeatured: true,
-    sortOrder: 1,
+    sortOrder: 2,
     year: '2026',
     role: 'Full-Stack Engineer',
     capacity: 'Product build',
@@ -67,7 +122,7 @@ export const projects: Project[] = [
     githubUrl: null,
     liveUrl: 'https://innermost.live/',
     isFeatured: true,
-    sortOrder: 2,
+    sortOrder: 3,
     year: '2025–present',
     role: 'Creator & Full-Stack Engineer',
     capacity: 'Solo build — personal project',
@@ -105,7 +160,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/codedsultan/docmind',
     liveUrl: null,
     isFeatured: true,
-    sortOrder: 3,
+    sortOrder: 4,
     year: '2025–present',
     role: 'Creator & AI Engineer',
     capacity: 'Portfolio project',
@@ -203,7 +258,7 @@ export const projects: Project[] = [
     websiteUrl: 'https://crm.xurl.fyi/',
     demoUrl: 'https://demo-crm.xurl.fyi/',
     isFeatured: true,
-    sortOrder: 4,
+    sortOrder: 5,
     year: '2024–present',
     role: 'Freelance Software Engineer',
     capacity: 'Solo build · ongoing maintenance',
@@ -243,7 +298,7 @@ export const projects: Project[] = [
     websiteUrl: 'https://writerix.xurl.fyi/',
     demoUrl: 'https://demo-writerix.xurl.fyi/',
     isFeatured: true,
-    sortOrder: 5,
+    sortOrder: 6,
     year: '2026',
     role: 'Architect & Full-Stack Engineer',
     capacity: 'Solo build',

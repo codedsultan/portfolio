@@ -38,7 +38,21 @@ export const skillGroups: SkillGroup[] = [
   {
     category: 'observability',
     label: 'Observability',
-    skills: ['Grafana', 'System Monitoring', 'Production Dashboards'],
+    skills: ['Grafana', 'OpenTelemetry', 'Jaeger', 'System Monitoring', 'Production Dashboards'],
+  },
+  {
+    category: 'ai',
+    label: 'AI & Agents',
+    skills: [
+      'RAG pipelines',
+      'LangGraph',
+      'LangChain',
+      'pgvector',
+      'Tool-calling agents',
+      'LLM evals & replay testing',
+      'OpenTelemetry (GenAI spans)',
+      'Prompt-injection hardening',
+    ],
   },
 ];
 

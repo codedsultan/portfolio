@@ -68,7 +68,6 @@ PROFILE = {
     'name': 'Olusegun Ibraheem',
     'headline': 'Senior Software Engineer',
     'email': 'codesultan369@gmail.com',
-    'phone': '+1 (587) 971-9955',
     'location': 'Calgary, Alberta, Canada',
     'linkedin': 'linkedin.com/in/codesultan',
     'github': 'github.com/codedsultan',
