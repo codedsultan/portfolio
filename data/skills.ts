@@ -8,7 +8,7 @@ export const skillGroups: SkillGroup[] = [
   {
     category: 'languages',
     label: 'Languages',
-    skills: ['TypeScript', 'JavaScript (ES6+)', 'PHP', 'Python', 'Go'],
+    skills: ['Python', 'TypeScript', 'JavaScript (ES6+)', 'PHP', 'Go'],
   },
   {
     category: 'frontend',
