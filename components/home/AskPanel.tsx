@@ -7,6 +7,11 @@ import { askIntro, recordedAnswers, type AnswerSource, type RecordedAnswer } fro
 import { matchQuestion } from '@/lib/askMatcher';
 import { cn } from '@/lib/utils';
 
+/** Longest question the input accepts. */
+const MAX_QUESTION_LENGTH = 200;
+/** Show the character count once the question is this close to the limit. */
+const LIMIT_WARNING_RANGE = 20;
+
 type AskResult = { kind: 'answer'; answer: RecordedAnswer } | { kind: 'no-match' } | null;
 
 /** Bold each source label where it appears in the answer text. */
@@ -118,6 +123,8 @@ export function AskPanel() {
   const [result, setResult] = useState<AskResult>(null);
 
   const activeId = result?.kind === 'answer' ? result.answer.id : null;
+  const remaining = MAX_QUESTION_LENGTH - query.length;
+  const isNearLimit = remaining <= LIMIT_WARNING_RANGE;
 
   function pick(answer: RecordedAnswer) {
     setQuery(answer.question);
@@ -144,6 +151,8 @@ export function AskPanel() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={askIntro.placeholder}
           autoComplete="off"
+          maxLength={MAX_QUESTION_LENGTH}
+          aria-describedby={isNearLimit ? 'ask-limit' : undefined}
           className="min-h-[52px] min-w-0 flex-1 rounded-lg border border-line-strong bg-surface px-4 text-base text-ink placeholder:text-slate-light"
         />
         <button
@@ -153,6 +162,13 @@ export function AskPanel() {
           Ask
         </button>
       </form>
+      {isNearLimit && (
+        <p id="ask-limit" className="num-mono mt-2 text-[12px] text-slate">
+          {remaining === 0
+            ? `${MAX_QUESTION_LENGTH}-character limit reached`
+            : `${remaining} ${remaining === 1 ? 'character' : 'characters'} left`}
+        </p>
+      )}
 
       <div className="mt-3.5">
         <QuestionChips activeId={activeId} onPick={pick} />

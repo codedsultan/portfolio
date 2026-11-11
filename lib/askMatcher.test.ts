@@ -38,6 +38,14 @@ describe('matchQuestion', () => {
     expect(match(input)).toBeNull();
   });
 
+  it('handles a 200-character input (the Ask input limit) that contains recorded keywords', () => {
+    const input = 'Where has he worked? '.padEnd(200, 'and please keep it brief ');
+    expect(input).toHaveLength(200);
+    expect(() => matchQuestion(input, recordedAnswers)).not.toThrow();
+    // Matches the work-history answer or nothing; never a different answer.
+    expect([null, 'work-history']).toContain(match(input));
+  });
+
   it('returns no match when two answers tie for the top score', () => {
     // "ai" (3) for one answer vs "experience" (3) for another.
     expect(match('ai experience')).toBeNull();
