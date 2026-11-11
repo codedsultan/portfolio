@@ -314,7 +314,7 @@ export const projects: Project[] = [
     // from a local install seeded with fictional demo data, cropped to ~1.5x.
     cover: {
       src: '/images/projects/veci-crm/cover.webp',
-      alt: 'Veci CRM dashboard, close up: KPI tiles for active projects, open pipeline value ($13,500), won this period ($7,500), win rate (50%), lead conversion rate (33%) and upcoming bookings, quick-action buttons for a new contact, lead, deal or project, and a needs-attention deal list',
+      alt: 'Veci CRM dashboard, close up: the app top bar with the demo workspace and user, then KPI tiles for active projects, open pipeline value ($13,500), won this period ($7,500), win rate (50%), lead conversion rate (33%) and upcoming bookings, quick-action buttons for a new contact, lead, deal or project, and a needs-attention deal list',
       width: 1600,
       height: 1000,
     },
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     // from a local demo-mode stack (AI calls simulated), cropped to ~1.5x.
     cover: {
       src: '/images/projects/writerix/cover.webp',
-      alt: 'WriterIX run detail, close up: a progress list of pipeline steps (research, outline, five section drafts, two editor review rounds with scores, SEO metadata, social captions, graphic text and rendered graphics, then waiting for final-draft review) beside a usage panel showing 8,695 tokens with the Claude model and token count for each step',
+      alt: 'WriterIX run detail, close up: the app top bar with the demo workspace and user, the run title "On this day, 10 November in Africa history" marked Needs review, a "Paused for review: final draft" banner, and a progress list of pipeline steps (research, outline, section drafts, editor review) beside a usage panel showing 8,695 tokens with the Claude model and token count for each step',
       width: 1600,
       height: 1000,
     },

@@ -6,14 +6,17 @@
  *
  * Featured-project covers (1600x1000, 16:10):
  *   xurl       xurl-fyi/cover.webp   — public landing page (deployed liveUrl)
- *   writerix   writerix/cover.webp   — ~1.5x crop of one run's pipeline
- *                                      progress and token usage panels, from a
+ *   writerix   writerix/cover.webp   — ~1.5x crop from the app top bar through
+ *                                      one run's title, review banner and the
+ *                                      top of its pipeline progress and token
+ *                                      usage panels, from a
  *                                      LOCAL demo-mode stack (`make demo`,
  *                                      AI/Stripe faked, seed_demo's fictional
  *                                      workspace). Its usage rows must be
  *                                      relabelled first (no "fake/" prefix).
- *   veci-crm   veci-crm/cover.webp   — ~1.5x crop of the dashboard KPI tiles,
- *                                      quick actions and needs-attention list,
+ *   veci-crm   veci-crm/cover.webp   — ~1.5x crop from the app top bar through
+ *                                      the dashboard KPI tiles, quick actions
+ *                                      and needs-attention list,
  *                                      from a LOCAL disposable install seeded
  *                                      with `seed_crm_scenarios --profile
  *                                      showcase` (fictional companies,
@@ -357,7 +360,9 @@ async function captureXurl(browser) {
 async function captureWriterix(browser) {
   requireLocal('WriterIX', WRITERIX_URL);
   const [email, password] = requireEnv('WRITERIX_EMAIL', 'WRITERIX_PASSWORD');
-  const page = await newPage(browser, { viewport: { width: 1600, height: 1200 }, deviceScaleFactor: ZOOM });
+  // 1320px wide puts the top bar's workspace switcher and user menu inside
+  // the same zoomed crop as the panels.
+  const page = await newPage(browser, { viewport: { width: 1320, height: 1200 }, deviceScaleFactor: ZOOM });
   try {
     await page.goto(`${WRITERIX_URL}/auth/login`, { waitUntil: 'networkidle' });
     await page.locator('input[type=email]').fill(email);
@@ -378,16 +383,18 @@ async function captureWriterix(browser) {
       throw new Error('WriterIX run shows "fake/" model labels — relabel the local demo usage rows first.');
     }
 
-    // Crop to the Progress and Usage panels, from their top edge (the heading
-    // sits 24px inside) so the full step list fits.
+    // Crop from the app top bar (below the demo-mode strip) through the run
+    // title and review banner into the Progress and Usage panels; the crop
+    // ends partway down the step list.
+    const topBar = await page.locator('header').first().boundingBox();
     const progress = await page.getByText('Progress', { exact: true }).boundingBox();
     const usage = await page.getByText('Usage', { exact: true }).boundingBox();
     await shootZoomed(page, rawPath('writerix', 'cover'), {
       left: progress.x - 24,
       right: usage.x + usage.width + 24,
-      top: progress.y - 28,
+      top: topBar.y,
     });
-    console.log('writerix: captured pipeline progress + usage panels at 1.5x');
+    console.log('writerix: captured top bar, run header and pipeline panels at 1.5x');
   } finally {
     await page.context().close();
   }
@@ -409,15 +416,17 @@ async function captureVeci(browser) {
     await page.getByText('Recent activity').waitFor({ state: 'visible' });
     await settle(page);
 
-    // Crop to the KPI tiles, quick actions and needs-attention list.
+    // Crop from the app top bar through the KPI tiles, quick actions and
+    // needs-attention list.
+    const topBar = await page.locator('header').first().boundingBox();
     const heading = await page.getByRole('heading', { name: 'Dashboard' }).boundingBox();
     const bookings = await page.getByText('Upcoming bookings').boundingBox();
     await shootZoomed(page, rawPath('veci-crm', 'cover'), {
       left: heading.x,
       right: bookings.x + bookings.width + 16,
-      top: heading.y - 16,
+      top: topBar.y,
     });
-    console.log('veci-crm: captured dashboard KPI widgets at 1.5x');
+    console.log('veci-crm: captured top bar and dashboard KPI widgets at 1.5x');
   } finally {
     await page.context().close();
   }
