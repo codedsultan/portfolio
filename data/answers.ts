@@ -61,7 +61,7 @@ export const recordedAnswers: RecordedAnswer[] = [
     id: 'full-stack-product',
     question: 'Show me a full-stack product',
     answer:
-      'Veci CRM is a multi-tenant CRM built from scratch for Veci Technologies and live in production. It is a domain-driven Django 5 monolith across 20+ bounded contexts, with a React 19 and TypeScript front end via Inertia, Celery and Redis workers for CSV/XLSX import and email ingestion, and Stripe for payments. For a smaller full-stack build, xurl.fyi is a URL shortener with a Go API and a Next.js front end.',
+      'Veci CRM is a multi-tenant CRM, live in production: a domain-driven Django monolith with a React and TypeScript front end, Celery workers and Stripe payments. For a smaller full-stack build, xurl.fyi pairs a Go API with a Next.js front end.',
     sources: [
       { label: 'Veci CRM', href: '/projects/veci-crm' },
       { label: 'xurl.fyi', href: '/projects/xurl-fyi' },
@@ -116,7 +116,7 @@ export const recordedAnswers: RecordedAnswer[] = [
     id: 'how-argus-works',
     question: 'How does Argus work?',
     answer:
-      'Argus is a tool-calling agent for a fictional field-optics shop. A stateless FastAPI service runs a LangChain tool loop over ten typed shop tools. The public demo runs in deterministic replay mode from recorded cassettes, so it needs no provider key and returns the same answer every time, which also makes it testable in CI. Every request produces an OpenTelemetry trace covering the agent workflow, the LLM call, the tool and the downstream API call, with prompt and completion content redacted before storage. Two Next.js front ends share one contract: a customer storefront and a trace-first inspector.',
+      'Argus is a tool-calling agent for a fictional field-optics shop: a stateless FastAPI service runs a LangChain loop over ten typed tools. The public demo replays recorded cassettes, so it needs no API key and answers identically every time. Every request produces a redacted OpenTelemetry trace, shown in a trace-first inspector alongside a customer storefront.',
     sources: [
       { label: 'Argus', href: '/projects/argus' },
       { label: 'Live demo', href: 'https://argus.xurl.fyi' },
