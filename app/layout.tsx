@@ -15,7 +15,8 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
-import { seo } from '@/data/profile';
+import { profile, seo } from '@/data/profile';
+import { socialLinks } from '@/data/social';
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -44,6 +45,16 @@ export const metadata: Metadata = {
   },
 };
 
+// Person structured data. Public profile links only: no phone, email or address.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.headline,
+  url: seo.siteUrl,
+  sameAs: socialLinks.filter((link) => link.url.startsWith('https://')).map((link) => link.url),
+};
+
 export const viewport: Viewport = {
   themeColor: '#1d4ed8',
   width: 'device-width',
@@ -58,6 +69,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          // Escape `<` so no string in the payload can close the script tag (Next JSON-LD guide).
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, '\\u003c') }}
+        />
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>

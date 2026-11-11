@@ -11,7 +11,7 @@ export const profile = {
 };
 
 export const hero = {
-  eyebrow: 'Full-Stack & AI Engineer · Calgary, AB',
+  eyebrow: 'Olusegun Ibraheem · Full-Stack & AI Engineer',
   prefix: "Hi, I'm",
   name: 'Olusegun Ibraheem',
   headline: 'I ship full-stack products, and AI features you can measure, trace and trust.',
