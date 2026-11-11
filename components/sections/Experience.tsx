@@ -14,17 +14,17 @@ function formatRange(start: string, end: string | null) {
   return `${fmt(start)} — ${end ? fmt(end) : 'Present'}`;
 }
 
+/**
+ * The highlights live in a <details>, so they are in the server HTML and expand
+ * inline without JS. With JS, the summary opens ExperienceModal instead; its
+ * stretched ::after keeps the whole card clickable.
+ */
 function ExperienceCard({ item, onOpen }: { item: ExperienceItem; onOpen: () => void }) {
   return (
     <li className="flex">
-      <button
-        type="button"
-        onClick={onOpen}
-        aria-haspopup="dialog"
-        className="group flex w-full flex-col rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:bg-blue-tint hover:shadow-[0_12px_32px_-12px_rgba(15,44,102,0.28)] motion-reduce:hover:translate-y-0"
-      >
+      <article className="group relative flex w-full flex-col rounded-lg border border-line bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-blue hover:bg-blue-tint hover:shadow-[0_12px_32px_-12px_rgba(15,44,102,0.28)] has-[summary:focus-visible]:border-blue motion-reduce:hover:translate-y-0">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="font-display text-[15px] font-semibold leading-snug text-ink">{item.role}</span>
+          <h3 className="font-display text-[15px] font-semibold leading-snug text-ink">{item.role}</h3>
           {item.isCurrent && (
             <span className="num-mono inline-flex items-center gap-1 rounded-full bg-blue-tint px-2 py-0.5 text-[11px] font-medium text-blue">
               <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden /> Current
@@ -36,11 +36,29 @@ function ExperienceCard({ item, onOpen }: { item: ExperienceItem; onOpen: () => 
 
         <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-slate">{item.summary}</p>
 
-        <span className="mt-4 flex items-center gap-1.5 text-[12.5px] font-medium text-slate transition-colors group-hover:text-blue">
-          View {item.achievements.length} highlights
-          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" aria-hidden />
-        </span>
-      </button>
+        <details className="mt-4">
+          <summary
+            onClick={(event) => {
+              event.preventDefault();
+              onOpen();
+            }}
+            aria-haspopup="dialog"
+            className="flex cursor-pointer list-none items-center gap-1.5 text-[12.5px] font-medium text-slate transition-colors after:absolute after:inset-0 after:rounded-lg after:content-[''] group-hover:text-blue [&::-webkit-details-marker]:hidden"
+          >
+            View {item.achievements.length} highlights
+            <span className="sr-only">for {item.role} at {item.company}</span>
+            <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" aria-hidden />
+          </summary>
+          <ul className="mt-3 space-y-2.5">
+            {item.achievements.map((achievement) => (
+              <li key={achievement} className="flex gap-2.5 text-[13.5px] leading-relaxed text-ink-soft">
+                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue" aria-hidden />
+                {achievement}
+              </li>
+            ))}
+          </ul>
+        </details>
+      </article>
     </li>
   );
 }
