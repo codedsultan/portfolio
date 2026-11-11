@@ -11,8 +11,8 @@ Each image needs `src`, `alt`, `width` and `height` (the real pixel size of the 
 
 ## Capture checklist
 
-1. Capture public pages from the deployed app. Anything behind a login whose deployed instance holds real data (Veci CRM, WriterIX, InnerMost) is captured from a local stack with seeded demo data or test accounts instead; `scripts/capture-screenshots.mjs` refuses non-localhost URLs for those.
-2. Cover: exactly 16:10, 1600x1000. Cards crop to 16:10 from the top, so keep the important content in the upper part.
+1. Capture public pages from the deployed app. Anything behind a login whose deployed instance holds real data (Veci CRM, WriterIX, InnerMost) is captured from a local stack with seeded demo data or test accounts instead; `scripts/capture-screenshots.mjs` refuses non-localhost URLs for those. WriterIX's demo mode labels usage rows `fake/<model>`; strip that prefix in the local demo database (`update billing_usageevent set model = substring(model from 6) where model like 'fake/%'`) and stop its beat/worker containers before capturing, or the script refuses.
+2. Cover: exactly 16:10, 1600x1000. For dense app screens, crop to one panel at about 1.5x (the WriterIX and Veci covers do) so text stays readable on a 375px-wide card. Cards crop to 16:10 from the top, so keep the important content in the upper part.
 3. Screenshots: 1600 px wide is plenty. Any height works on the project page.
 4. Export as WebP, aim for under 150 KB each.
 5. Before capturing, check the frame for: tokens, API keys, emails, cookie banners, real customer data, admin URLs.

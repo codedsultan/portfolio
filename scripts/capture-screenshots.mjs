@@ -6,15 +6,19 @@
  *
  * Featured-project covers (1600x1000, 16:10):
  *   xurl       xurl-fyi/cover.webp   — public landing page (deployed liveUrl)
- *   writerix   writerix/cover.webp   — run detail with the pipeline progress
- *                                      and token usage, from a LOCAL demo-mode
- *                                      stack (`make demo`, AI/Stripe faked,
- *                                      seed_demo's fictional workspace)
- *   veci-crm   veci-crm/cover.webp   — dashboard from a LOCAL disposable
- *                                      install seeded with
- *                                      `seed_crm_scenarios --profile showcase`
- *                                      (fictional companies, example.com
- *                                      contacts). Never the production app.
+ *   writerix   writerix/cover.webp   — ~1.5x crop of one run's pipeline
+ *                                      progress and token usage panels, from a
+ *                                      LOCAL demo-mode stack (`make demo`,
+ *                                      AI/Stripe faked, seed_demo's fictional
+ *                                      workspace). Its usage rows must be
+ *                                      relabelled first (no "fake/" prefix).
+ *   veci-crm   veci-crm/cover.webp   — ~1.5x crop of the dashboard KPI tiles,
+ *                                      quick actions and needs-attention list,
+ *                                      from a LOCAL disposable install seeded
+ *                                      with `seed_crm_scenarios --profile
+ *                                      showcase` (fictional companies,
+ *                                      example.com contacts). Never the
+ *                                      production app.
  *   innermost  innermost/cover.webp  — Golden Mind number board for a test
  *                                      account on a LOCAL stack (own Postgres),
  *                                      so no real players or leaderboard rows.
@@ -102,6 +106,13 @@ const VIEWPORT = { width: 1600, height: 1000 };
 const COLOUR_SCHEME = 'dark';
 const MAX_BYTES = 150 * 1024;
 const SETTLE_MS = 500;
+// Zoomed covers render the page at ~1.5x and clip a 16:10 region around
+// one panel, so the saved image is still VIEWPORT-sized but its text stays
+// legible on a 375px-wide card. Playwright floors clips to whole CSS pixels,
+// so the clip is 1067x667 and the scale is 1600/1067 (1.4995): exactly
+// 1600x1000 out, where a true 1.5x would give 1599 or 1601.
+const ZOOM_CLIP = { width: Math.ceil(VIEWPORT.width / 1.5), height: Math.ceil(VIEWPORT.height / 1.5) };
+const ZOOM = VIEWPORT.width / ZOOM_CLIP.width;
 
 const COVER_TARGETS = ['xurl', 'writerix', 'veci-crm', 'innermost'];
 
@@ -130,10 +141,10 @@ async function settle(page) {
   await page.waitForTimeout(SETTLE_MS);
 }
 
-async function newPage(browser) {
+async function newPage(browser, { viewport = VIEWPORT, deviceScaleFactor = 1 } = {}) {
   const context = await browser.newContext({
-    viewport: VIEWPORT,
-    deviceScaleFactor: 1,
+    viewport,
+    deviceScaleFactor,
     colorScheme: COLOUR_SCHEME,
     reducedMotion: 'reduce',
   });
@@ -293,6 +304,21 @@ async function captureWaterfall(browser) {
   }
 }
 
+/**
+ * Screenshots a ZOOM_CLIP region (needs a page opened with
+ * deviceScaleFactor: ZOOM) centred horizontally on [left, right] and
+ * starting at `top`, clamped to the viewport.
+ */
+async function shootZoomed(page, pngPath, { left, right, top }) {
+  const viewport = page.viewportSize();
+  const x = Math.min(Math.max((left + right) / 2 - ZOOM_CLIP.width / 2, 0), viewport.width - ZOOM_CLIP.width);
+  const y = Math.min(Math.max(top, 0), viewport.height - ZOOM_CLIP.height);
+  if (right - left > ZOOM_CLIP.width) {
+    throw new Error(`Panel is ${Math.round(right - left)}px wide; it can't fit a ${Math.round(ZOOM_CLIP.width)}px zoomed crop.`);
+  }
+  await page.screenshot({ path: pngPath, clip: { x: Math.round(x), y: Math.round(y), ...ZOOM_CLIP } });
+}
+
 /** Throws unless `url` points at this machine — guards real-data apps. */
 function requireLocal(name, url) {
   const { hostname } = new URL(url);
@@ -331,7 +357,7 @@ async function captureXurl(browser) {
 async function captureWriterix(browser) {
   requireLocal('WriterIX', WRITERIX_URL);
   const [email, password] = requireEnv('WRITERIX_EMAIL', 'WRITERIX_PASSWORD');
-  const page = await newPage(browser);
+  const page = await newPage(browser, { viewport: { width: 1600, height: 1200 }, deviceScaleFactor: ZOOM });
   try {
     await page.goto(`${WRITERIX_URL}/auth/login`, { waitUntil: 'networkidle' });
     await page.locator('input[type=email]').fill(email);
@@ -346,8 +372,22 @@ async function captureWriterix(browser) {
     await page.getByText('Usage', { exact: true }).waitFor({ state: 'visible' });
     await settle(page);
 
-    await page.screenshot({ path: rawPath('writerix', 'cover') });
-    console.log('writerix: captured run detail (pipeline progress + usage)');
+    // AI_FAKE labels usage rows "fake/<model>"; the local demo data must be
+    // relabelled before capture (see docs/project-screenshots.md).
+    if ((await page.locator('main').innerText()).includes('fake/')) {
+      throw new Error('WriterIX run shows "fake/" model labels — relabel the local demo usage rows first.');
+    }
+
+    // Crop to the Progress and Usage panels, from their top edge (the heading
+    // sits 24px inside) so the full step list fits.
+    const progress = await page.getByText('Progress', { exact: true }).boundingBox();
+    const usage = await page.getByText('Usage', { exact: true }).boundingBox();
+    await shootZoomed(page, rawPath('writerix', 'cover'), {
+      left: progress.x - 24,
+      right: usage.x + usage.width + 24,
+      top: progress.y - 28,
+    });
+    console.log('writerix: captured pipeline progress + usage panels at 1.5x');
   } finally {
     await page.context().close();
   }
@@ -356,7 +396,8 @@ async function captureWriterix(browser) {
 async function captureVeci(browser) {
   requireLocal('Veci CRM', VECI_URL);
   const [username, password] = requireEnv('VECI_USERNAME', 'VECI_PASSWORD');
-  const page = await newPage(browser);
+  // 1320px wide makes the main column (KPI grid) fit one zoomed crop.
+  const page = await newPage(browser, { viewport: { width: 1320, height: 1000 }, deviceScaleFactor: ZOOM });
   try {
     await page.goto(`${VECI_URL}/login/`, { waitUntil: 'networkidle' });
     await page.locator('input[name=username]').fill(username);
@@ -368,8 +409,15 @@ async function captureVeci(browser) {
     await page.getByText('Recent activity').waitFor({ state: 'visible' });
     await settle(page);
 
-    await page.screenshot({ path: rawPath('veci-crm', 'cover') });
-    console.log('veci-crm: captured dashboard');
+    // Crop to the KPI tiles, quick actions and needs-attention list.
+    const heading = await page.getByRole('heading', { name: 'Dashboard' }).boundingBox();
+    const bookings = await page.getByText('Upcoming bookings').boundingBox();
+    await shootZoomed(page, rawPath('veci-crm', 'cover'), {
+      left: heading.x,
+      right: bookings.x + bookings.width + 16,
+      top: heading.y - 16,
+    });
+    console.log('veci-crm: captured dashboard KPI widgets at 1.5x');
   } finally {
     await page.context().close();
   }

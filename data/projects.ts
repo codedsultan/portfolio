@@ -212,7 +212,7 @@ export const projects: Project[] = [
     category: 'platform',
     githubUrl: 'https://github.com/codedsultan/docmind',
     liveUrl: null,
-    isFeatured: true,
+    isFeatured: false,
     sortOrder: 4,
     year: '2025–present',
     role: 'Creator & AI Engineer',
@@ -311,10 +311,10 @@ export const projects: Project[] = [
     websiteUrl: 'https://crm.xurl.fyi/',
     demoUrl: 'https://demo-crm.xurl.fyi/',
     // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs),
-    // from a local install seeded with fictional demo data.
+    // from a local install seeded with fictional demo data, cropped to ~1.5x.
     cover: {
       src: '/images/projects/veci-crm/cover.webp',
-      alt: 'Veci CRM dashboard for a demo workspace: KPI tiles for open pipeline value, deals won this period, win rate, lead conversion rate and upcoming bookings, quick actions for new contact, lead, deal and project, a needs-attention deal list and recent activity, with the sidebar of CRM, delivery, revenue and scheduling sections',
+      alt: 'Veci CRM dashboard, close up: KPI tiles for active projects, open pipeline value ($13,500), won this period ($7,500), win rate (50%), lead conversion rate (33%) and upcoming bookings, quick-action buttons for a new contact, lead, deal or project, and a needs-attention deal list',
       width: 1600,
       height: 1000,
     },
@@ -359,10 +359,10 @@ export const projects: Project[] = [
     websiteUrl: 'https://writerix.xurl.fyi/',
     demoUrl: 'https://demo-writerix.xurl.fyi/',
     // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs),
-    // from a local demo-mode stack (AI calls simulated).
+    // from a local demo-mode stack (AI calls simulated), cropped to ~1.5x.
     cover: {
       src: '/images/projects/writerix/cover.webp',
-      alt: 'WriterIX run paused for final-draft review in a demo workspace: the progress list steps through research, outline, five parallel section drafts, two editor review rounds, SEO metadata, social captions and rendered graphics, beside a usage panel listing tokens per step and model',
+      alt: 'WriterIX run detail, close up: a progress list of pipeline steps (research, outline, five section drafts, two editor review rounds with scores, SEO metadata, social captions, graphic text and rendered graphics, then waiting for final-draft review) beside a usage panel showing 8,695 tokens with the Claude model and token count for each step',
       width: 1600,
       height: 1000,
     },
