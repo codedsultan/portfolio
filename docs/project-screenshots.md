@@ -11,7 +11,7 @@ Each image needs `src`, `alt`, `width` and `height` (the real pixel size of the 
 
 ## Capture checklist
 
-1. Capture from the deployed app, not localhost.
+1. Capture public pages from the deployed app. Anything behind a login whose deployed instance holds real data (Veci CRM, WriterIX, InnerMost) is captured from a local stack with seeded demo data or test accounts instead; `scripts/capture-screenshots.mjs` refuses non-localhost URLs for those.
 2. Cover: exactly 16:10, 1600x1000. Cards crop to 16:10 from the top, so keep the important content in the upper part.
 3. Screenshots: 1600 px wide is plenty. Any height works on the project page.
 4. Export as WebP, aim for under 150 KB each.

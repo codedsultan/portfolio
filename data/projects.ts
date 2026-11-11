@@ -131,6 +131,13 @@ export const projects: Project[] = [
     category: 'fullstack',
     githubUrl: null,
     liveUrl: 'https://xurl.fyi/',
+    // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs).
+    cover: {
+      src: '/images/projects/xurl-fyi/cover.webp',
+      alt: 'xurl.fyi landing page with the headline "Shorten your links. Track every click.", a paste-your-long-URL field with a "Get started free" button, and the first row of feature cards: instant shortening, real analytics, custom domains and link protection',
+      width: 1600,
+      height: 1000,
+    },
     isFeatured: true,
     sortOrder: 2,
     year: '2026',
@@ -160,6 +167,13 @@ export const projects: Project[] = [
     category: 'fullstack',
     githubUrl: null,
     liveUrl: 'https://innermost.live/',
+    // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs).
+    cover: {
+      src: '/images/projects/innermost/cover.webp',
+      alt: 'InnerMost Golden Mind round: "You are a member of Team Gold" above a grid of numbers outlined in gold, red and blue team colours, with a Proceed button; the player bar shows a member account with its credit balance and one player online',
+      width: 1600,
+      height: 1000,
+    },
     isFeatured: true,
     sortOrder: 3,
     year: '2025–present',
@@ -296,6 +310,14 @@ export const projects: Project[] = [
     stagingUrl: null,
     websiteUrl: 'https://crm.xurl.fyi/',
     demoUrl: 'https://demo-crm.xurl.fyi/',
+    // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs),
+    // from a local install seeded with fictional demo data.
+    cover: {
+      src: '/images/projects/veci-crm/cover.webp',
+      alt: 'Veci CRM dashboard for a demo workspace: KPI tiles for open pipeline value, deals won this period, win rate, lead conversion rate and upcoming bookings, quick actions for new contact, lead, deal and project, a needs-attention deal list and recent activity, with the sidebar of CRM, delivery, revenue and scheduling sections',
+      width: 1600,
+      height: 1000,
+    },
     isFeatured: true,
     sortOrder: 5,
     year: '2024–present',
@@ -336,6 +358,14 @@ export const projects: Project[] = [
     liveUrlLabel: 'View staging app',
     websiteUrl: 'https://writerix.xurl.fyi/',
     demoUrl: 'https://demo-writerix.xurl.fyi/',
+    // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs),
+    // from a local demo-mode stack (AI calls simulated).
+    cover: {
+      src: '/images/projects/writerix/cover.webp',
+      alt: 'WriterIX run paused for final-draft review in a demo workspace: the progress list steps through research, outline, five parallel section drafts, two editor review rounds, SEO metadata, social captions and rendered graphics, beside a usage panel listing tokens per step and model',
+      width: 1600,
+      height: 1000,
+    },
     isFeatured: true,
     sortOrder: 6,
     year: '2026',
