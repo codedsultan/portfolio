@@ -2,9 +2,6 @@
 
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Container } from '@/components/ui/Container';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Reveal } from '@/components/ui/Reveal';
 import { ExperienceModal } from '@/components/sections/ExperienceModal';
 import { experience, type ExperienceItem } from '@/data/experience';
 
@@ -17,93 +14,52 @@ function formatRange(start: string, end: string | null) {
   return `${fmt(start)} — ${end ? fmt(end) : 'Present'}`;
 }
 
-function ExperienceCard({
-  item,
-  index,
-  onOpen,
-  isLast,
-}: {
-  item: ExperienceItem;
-  index: number;
-  onOpen: () => void;
-  isLast: boolean;
-}) {
+function ExperienceCard({ item, onOpen }: { item: ExperienceItem; onOpen: () => void }) {
   return (
-    <Reveal as="li" delay={index * 70} className="relative pl-8">
-      {!isLast && (
-        <span className="absolute left-[5px] top-5 bottom-[-1rem] w-px bg-line-strong" aria-hidden />
-      )}
-      <span
-        className={`absolute left-0 top-2 flex h-[10px] w-[10px] items-center justify-center rounded-full border-2 transition-colors ${item.isCurrent ? 'border-blue bg-blue' : 'border-line-strong bg-surface'
-          }`}
-        aria-hidden
-      />
-
+    <li className="flex">
       <button
         type="button"
         onClick={onOpen}
-        className="group w-full rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:bg-blue-tint hover:shadow-[0_12px_32px_-12px_rgba(15,44,102,0.28)]"
+        aria-haspopup="dialog"
+        className="group flex w-full flex-col rounded-lg border border-line bg-surface p-5 text-left transition-all hover:-translate-y-0.5 hover:border-blue hover:bg-blue-tint hover:shadow-[0_12px_32px_-12px_rgba(15,44,102,0.28)] motion-reduce:hover:translate-y-0"
       >
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="font-display text-[15px] font-semibold leading-snug text-ink">
-                {item.role}
-              </span>
-              {item.isCurrent && (
-                <span className="num-mono inline-flex items-center gap-1 rounded-full bg-blue-tint px-2 py-0.5 text-[11px] font-medium text-blue">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden /> Current
-                </span>
-              )}
-            </div>
-            <p className="mt-0.5 text-[13.5px] font-medium text-blue">{item.company}</p>
-          </div>
-          <span className="num-mono flex-shrink-0 text-[12px] text-slate-light">
-            {formatRange(item.startDate, item.endDate)}
-          </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-display text-[15px] font-semibold leading-snug text-ink">{item.role}</span>
+          {item.isCurrent && (
+            <span className="num-mono inline-flex items-center gap-1 rounded-full bg-blue-tint px-2 py-0.5 text-[11px] font-medium text-blue">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden /> Current
+            </span>
+          )}
         </div>
+        <p className="mt-1 text-[13.5px] font-medium text-blue">{item.company}</p>
+        <p className="num-mono mt-1 text-[12px] text-slate-light">{formatRange(item.startDate, item.endDate)}</p>
 
-        <p className="mt-2.5 line-clamp-2 text-[13.5px] leading-relaxed text-slate">
-          {item.summary}
-        </p>
+        <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-slate">{item.summary}</p>
 
-        <div className="mt-3 flex items-center gap-1.5 text-[12.5px] font-medium text-slate transition-colors group-hover:text-blue">
+        <span className="mt-4 flex items-center gap-1.5 text-[12.5px] font-medium text-slate transition-colors group-hover:text-blue">
           View {item.achievements.length} highlights
-          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
-        </div>
+          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" aria-hidden />
+        </span>
       </button>
-    </Reveal>
+    </li>
   );
 }
 
+/** Résumé tab panel: roles as cards; each opens ExperienceModal with its highlights. */
 export function Experience() {
   const [selected, setSelected] = useState<ExperienceItem | null>(null);
 
   return (
     <>
-      <section id="experience" className="bg-panel py-24 sm:py-28">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow="02 — Experience"
-              title="Where I've built"
-              description="Click any role to see the full scope of work and key achievements."
-            />
-          </Reveal>
-
-          <ol className="relative mt-14 space-y-4">
-            {experience.map((item, i) => (
-              <ExperienceCard
-                key={`${item.company}-${item.startDate}`}
-                item={item}
-                index={i}
-                isLast={i === experience.length - 1}
-                onOpen={() => setSelected(item)}
-              />
-            ))}
-          </ol>
-        </Container>
-      </section>
+      <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {experience.map((item) => (
+          <ExperienceCard
+            key={`${item.company}-${item.startDate}`}
+            item={item}
+            onOpen={() => setSelected(item)}
+          />
+        ))}
+      </ol>
 
       <ExperienceModal item={selected} onClose={() => setSelected(null)} />
     </>

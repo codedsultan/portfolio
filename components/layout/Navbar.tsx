@@ -2,18 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { profile } from '@/data/profile';
 import { cn } from '@/lib/utils';
 
+// Plain anchors (not <Link>) so the browser fires `hashchange` for the résumé tabs.
 const NAV_LINKS = [
-  { label: 'Profile', href: '/#profile' },
-  { label: 'Experience', href: '/#experience' },
   { label: 'Work', href: '/#work' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Education', href: '/#education' },
+  { label: 'Résumé', href: '/#resume' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export function Navbar() {
@@ -49,7 +48,7 @@ export function Navbar() {
           <span className="hidden text-[15px] sm:inline">{profile.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main navigation" className="ml-auto mr-6 hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -62,19 +61,13 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href="/#contact"
-            className="num-mono text-[13px] tracking-tight text-slate transition-colors hover:text-blue"
-          >
-            Contact
-          </Link>
           <ThemeToggle />
           <a
             href={profile.resumeUrl}
             download
             className="inline-flex items-center gap-1.5 rounded-md border border-line-strong bg-surface px-4 py-2 text-[13px] font-medium text-ink transition-colors hover:border-blue hover:text-blue"
           >
-            Résumé <ArrowUpRight size={13} />
+            <Download size={13} aria-hidden /> Résumé PDF
           </a>
         </div>
 
@@ -99,7 +92,7 @@ export function Navbar() {
         )}
       >
         <Container className="flex flex-col gap-1 py-4">
-          {[...NAV_LINKS, { label: 'Contact', href: '/#contact' }].map((link) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -115,7 +108,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md bg-blue-action px-4 py-2.5 text-[15px] font-medium text-white"
           >
-            Download résumé <ArrowUpRight size={14} />
+            <Download size={14} aria-hidden /> Download résumé
           </a>
         </Container>
       </div>
