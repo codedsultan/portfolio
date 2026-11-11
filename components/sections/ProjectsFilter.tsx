@@ -26,13 +26,12 @@ export function ProjectsFilter({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
         {categories.map((cat) => (
           <button
             key={cat}
             type="button"
-            role="tab"
-            aria-selected={active === cat}
+            aria-pressed={active === cat}
             onClick={() => setActive(cat)}
             className={cn(
               'num-mono rounded-full border px-3.5 py-1.5 text-[12.5px] tracking-tight transition-colors',

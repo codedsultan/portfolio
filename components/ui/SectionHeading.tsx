@@ -5,12 +5,14 @@ export function SectionHeading({
   title,
   description,
   align = 'left',
+  as: Heading = 'h2',
   className,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
   align?: 'left' | 'center';
+  as?: 'h1' | 'h2';
   className?: string;
 }) {
   return (
@@ -21,9 +23,9 @@ export function SectionHeading({
         </span>
         <span className="h-px flex-1 max-w-[64px] bg-line-strong" aria-hidden />
       </div>
-      <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink text-balance">
+      <Heading className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-tight text-ink text-balance">
         {title}
-      </h2>
+      </Heading>
       {description && (
         <p className="mt-3 text-base leading-relaxed text-slate">{description}</p>
       )}
