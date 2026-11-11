@@ -57,29 +57,31 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/codedsultan/argus-ai',
     liveUrl: 'https://argus.xurl.fyi',
     liveUrlLabel: 'View live demo (replay mode)',
-    // TODO: add once the files exist in public/images/projects/argus/ (see docs/project-screenshots.md)
-    // cover: {
-    //   src: '/images/projects/argus/cover.webp',
-    //   alt: 'Argus storefront assistant answering a stock question with the tool call shown',
-    //   width: 1600,
-    //   height: 1000,
-    // },
-    // screenshots: [
-    //   {
-    //     src: '/images/projects/argus/inspector.webp',
-    //     alt: 'Trace-first inspector showing a tool call, its arguments and the trace ID',
-    //     width: 1600,
-    //     height: 1000,
-    //     caption: 'The engineer lens: every answer links to its tool calls and trace.',
-    //   },
-    //   {
-    //     src: '/images/projects/argus/waterfall.webp',
-    //     alt: 'Span waterfall for one agent request across the LLM call, tool and shop API',
-    //     width: 1600,
-    //     height: 1000,
-    //     caption: 'One request as OpenTelemetry spans: agent, model, tool, downstream API.',
-    //   },
-    // ],
+    // Captured per docs/project-screenshots.md (scripts/capture-screenshots.mjs).
+    cover: {
+      src: '/images/projects/argus/cover.webp',
+      alt: 'Argus Field Supply storefront assistant answering "What current promotions are available on binoculars?" with a Ridgeview 8x42 offer card at 50% off, a "Checked Promotions" provenance line, and the catalog sidebar of field-supply categories',
+      width: 1600,
+      height: 1000,
+    },
+    screenshots: [
+      {
+        src: '/images/projects/argus/inspector.webp',
+        alt: 'Trace-first inspector with the "Trace & tools" panel expanded: the get_ads tool call, its binoculars category argument, call counts and estimated tokens, and the 32-character trace ID behind the answer',
+        width: 1600,
+        height: 1000,
+        caption:
+          'The engineer lens: every answer expands to its tool call, arguments, metrics, and trace ID.',
+      },
+      {
+        src: '/images/projects/argus/waterfall.webp',
+        alt: 'Operations console span waterfall for one recorded request: the agent root, workflow and LangGraph invoke spans expanded with timing bars and redacted tags, followed by collapsed rows for the LLM calls, get_ads tool execution, and shop-api round trip',
+        width: 1600,
+        height: 2164,
+        caption:
+          'One request as OpenTelemetry spans: agent workflow, LLM call, get_ads tool execution, and the shop-api round trip — prompt and completion content redacted before storage.',
+      },
+    ],
     isFeatured: true,
     sortOrder: 1,
     year: '2026',
