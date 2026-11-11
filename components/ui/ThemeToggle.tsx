@@ -1,14 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { Moon, Sun } from 'lucide-react';
+
+const noopSubscribe = () => () => {};
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  // false during SSR and hydration, true on the client: avoids a theme icon mismatch
+  const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
 
   if (!mounted) {
     return <span className="h-8 w-8" aria-hidden />;

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';

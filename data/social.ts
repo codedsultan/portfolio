@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 export interface SocialLink {
   platform: string;

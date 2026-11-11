@@ -62,12 +62,12 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
+          <Link
             href="/#contact"
             className="num-mono text-[13px] tracking-tight text-slate transition-colors hover:text-blue"
           >
             Contact
-          </a>
+          </Link>
           <ThemeToggle />
           <a
             href={profile.resumeUrl}

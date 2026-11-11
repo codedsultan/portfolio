@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
