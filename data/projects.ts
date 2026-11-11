@@ -55,7 +55,6 @@ export const projects: Project[] = [
     ],
     category: 'fullstack',
     githubUrl: 'https://github.com/codedsultan/argus-ai',
-    // TODO: confirm the live Argus URL before deploying
     liveUrl: 'https://argus.xurl.fyi',
     liveUrlLabel: 'View live demo (replay mode)',
     // TODO: add once the files exist in public/images/projects/argus/ (see docs/project-screenshots.md)

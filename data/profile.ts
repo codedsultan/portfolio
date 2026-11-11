@@ -20,7 +20,6 @@ export const hero = {
   primaryCta: { label: 'View selected work', target: '#work' },
   secondaryCta: { label: 'Get in touch', target: '#contact' },
   shipping: [
-    // TODO: confirm the live Argus URL before deploying
     { label: 'Argus', detail: 'Traceable AI agent', href: 'https://argus.xurl.fyi' },
     { label: 'WriterIX', detail: 'Multi-tenant AI SaaS', href: 'https://writerix.xurl.fyi/' },
     { label: 'Veci CRM', detail: 'Multi-tenant CRM', href: 'https://app-crm.xurl.fyi/' },
