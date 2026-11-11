@@ -6,7 +6,8 @@
     "dev": "PORT=3303 next dev",
     "build": "next build",
     "start": "PORT=3303 next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
@@ -29,6 +30,7 @@
     "eslint-config-next": "16.2.9",
     "playwright": "^1.65.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.1.0"
   }
 }
