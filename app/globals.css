@@ -68,6 +68,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keeps hash targets clear of the fixed 64px navbar */
+  scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
 }
 
