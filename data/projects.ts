@@ -213,7 +213,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/codedsultan/docmind',
     liveUrl: null,
     isFeatured: false,
-    sortOrder: 4,
+    sortOrder: 6,
     year: '2025–present',
     role: 'Creator & AI Engineer',
     capacity: 'Portfolio project',
