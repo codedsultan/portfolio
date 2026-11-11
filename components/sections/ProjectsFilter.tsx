@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { Chip } from '@/components/ui/Chip';
+import { ProjectCover } from '@/components/ui/ProjectShot';
 import { cn } from '@/lib/utils';
 import type { Project } from '@/data/projects';
 
@@ -52,6 +53,14 @@ export function ProjectsFilter({ projects }: { projects: Project[] }) {
             href={`/projects/${project.slug}`}
             className="group flex flex-col rounded-lg border border-line bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-blue hover:shadow-[0_12px_28px_-16px_rgba(15,44,102,0.25)]"
           >
+            {project.cover && (
+              <ProjectCover
+                image={project.cover}
+                decorative
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+                className="-mx-5 -mt-5 mb-4 w-[calc(100%+2.5rem)] rounded-t-[7px] border-b border-line"
+              />
+            )}
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-[15px] font-semibold leading-snug text-ink">
                 {project.title}

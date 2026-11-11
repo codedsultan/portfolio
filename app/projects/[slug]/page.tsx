@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from 'lucide-react'
 import { Container } from '@/components/ui/Container';
 import { Chip } from '@/components/ui/Chip';
 import { Button } from '@/components/ui/Button';
+import { ProjectFigure } from '@/components/ui/ProjectShot';
 import { allProjectsSorted, getProjectBySlug } from '@/data/projects';
 import { seo } from '@/data/profile';
 
@@ -34,6 +35,7 @@ export async function generateMetadata({
       title: `${project.title} — ${seo.siteUrl.replace('https://', '')}`,
       description: project.description,
       type: 'article',
+      ...(project.cover && { images: [{ url: project.cover.src, width: project.cover.width, height: project.cover.height, alt: project.cover.alt }] }),
     },
   };
 }
@@ -111,6 +113,8 @@ export default async function ProjectPage({
           )}
         </div>
 
+        {project.cover && <ProjectFigure image={project.cover} preload className="mt-12" />}
+
         <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-4">
           {[
             { label: 'Role', value: project.role },
@@ -131,6 +135,17 @@ export default async function ProjectPage({
           <h2 className="num-mono text-[12px] uppercase tracking-[0.08em] text-blue">Overview</h2>
           <p className="mt-4 text-[16px] leading-relaxed text-ink-soft">{project.fullDescription}</p>
         </div>
+
+        {project.screenshots && project.screenshots.length > 0 && (
+          <div className="mt-12 border-t border-line pt-8">
+            <h2 className="num-mono text-[12px] uppercase tracking-[0.08em] text-blue">Screenshots</h2>
+            <div className="mt-5 space-y-6">
+              {project.screenshots.map((shot) => (
+                <ProjectFigure key={shot.src} image={shot} />
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2">
           <div>

@@ -12,6 +12,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { Chip } from '@/components/ui/Chip';
+import { ProjectCover } from '@/components/ui/ProjectShot';
 import { ProjectsFilter } from '@/components/sections/ProjectsFilter';
 import { featuredProjects, allProjectsSorted } from '@/data/projects';
 
@@ -36,6 +37,21 @@ export function Projects() {
               delay={i * 100}
               className="group flex flex-col rounded-lg border border-line bg-surface p-6 transition-all hover:-translate-y-1 hover:border-blue hover:shadow-[0_20px_40px_-20px_rgba(15,44,102,0.3)]"
             >
+              {project.cover && (
+                <Link
+                  href={`/projects/${project.slug}`}
+                  tabIndex={-1}
+                  aria-hidden
+                  className="-mx-6 -mt-6 mb-5 block overflow-hidden rounded-t-[7px] border-b border-line"
+                >
+                  <ProjectCover
+                    image={project.cover}
+                    decorative
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                  />
+                </Link>
+              )}
+
               <div className="flex items-center justify-between">
                 <span className="num-mono text-[12px] text-slate-light">
                   0{i + 1} / {String(featuredProjects.length).padStart(2, '0')}

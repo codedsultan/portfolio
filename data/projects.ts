@@ -1,3 +1,14 @@
+export interface ProjectImage {
+  /** Path under /public, e.g. '/images/projects/argus/cover.webp' */
+  src: string;
+  /** Describe what the screenshot shows, not that it is a screenshot */
+  alt: string;
+  /** Intrinsic pixel size of the file (used to reserve space and avoid layout shift) */
+  width: number;
+  height: number;
+  caption?: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -8,6 +19,10 @@ export interface Project {
   githubUrl: string | null;
   liveUrl: string | null;
   liveUrlLabel?: string;
+  /** Shown on the project card and at the top of the project page. Capture at 16:10 (e.g. 1600x1000). */
+  cover?: ProjectImage;
+  /** Extra images shown on the project page under the overview. */
+  screenshots?: ProjectImage[];
   stagingUrl?: string | null;
   websiteUrl?: string | null;
   demoUrl?: string | null;
@@ -43,6 +58,29 @@ export const projects: Project[] = [
     // TODO: confirm the live Argus URL before deploying
     liveUrl: 'https://argus.xurl.fyi',
     liveUrlLabel: 'View live demo (replay mode)',
+    // TODO: add once the files exist in public/images/projects/argus/ (see docs/project-screenshots.md)
+    // cover: {
+    //   src: '/images/projects/argus/cover.webp',
+    //   alt: 'Argus storefront assistant answering a stock question with the tool call shown',
+    //   width: 1600,
+    //   height: 1000,
+    // },
+    // screenshots: [
+    //   {
+    //     src: '/images/projects/argus/inspector.webp',
+    //     alt: 'Trace-first inspector showing a tool call, its arguments and the trace ID',
+    //     width: 1600,
+    //     height: 1000,
+    //     caption: 'The engineer lens: every answer links to its tool calls and trace.',
+    //   },
+    //   {
+    //     src: '/images/projects/argus/waterfall.webp',
+    //     alt: 'Span waterfall for one agent request across the LLM call, tool and shop API',
+    //     width: 1600,
+    //     height: 1000,
+    //     caption: 'One request as OpenTelemetry spans: agent, model, tool, downstream API.',
+    //   },
+    // ],
     isFeatured: true,
     sortOrder: 1,
     year: '2026',
