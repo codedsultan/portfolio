@@ -17,6 +17,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { profile, seo } from '@/data/profile';
 import { socialLinks } from '@/data/social';
+import { profileLocation } from '@/lib/location';
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.siteUrl),
@@ -45,7 +46,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Person structured data. Public profile links only: no phone, email or address.
+// Person structured data. Public profile links and city/region only: no phone,
+// email or street address.
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -53,6 +55,11 @@ const personJsonLd = {
   jobTitle: profile.headline,
   url: seo.siteUrl,
   sameAs: socialLinks.filter((link) => link.url.startsWith('https://')).map((link) => link.url),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: profileLocation.locality,
+    addressRegion: profileLocation.region,
+  },
 };
 
 export const viewport: Viewport = {

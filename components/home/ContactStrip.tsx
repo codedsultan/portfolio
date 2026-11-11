@@ -1,7 +1,8 @@
-import { Mail, Download } from 'lucide-react';
+import { Mail, Download, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { contact, profile } from '@/data/profile';
+import { profileLocationShort } from '@/lib/location';
 
 export function ContactStrip() {
   return (
@@ -17,6 +18,10 @@ export function ContactStrip() {
               <a href={`mailto:${profile.email}`} className="font-medium text-blue hover:underline">
                 {profile.email}
               </a>
+            </p>
+            <p className="mt-2 flex items-center gap-1.5 text-[14px] text-slate">
+              <MapPin size={14} className="text-blue" aria-hidden />
+              {profileLocationShort}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
